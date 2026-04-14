@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Articulos // Cambie a public
+    public class Articulos
     {
         public int IdArticulo { get; set; }
         public int Codigo { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        // Falta creear el objeto Marca y Categoria
+        public Marca Marca { get; set; }
+        public Categoria Categoria { get; set; }
         public decimal Precio { get; set; }
     }
 }
