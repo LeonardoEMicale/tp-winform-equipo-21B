@@ -13,7 +13,6 @@ namespace AccesoDatos
         private SqlCommand comando;
         private SqlDataReader lector;
 
-        //Propiedad para acceder al lector desde otras clases
         public SqlDataReader Lector
         {
             get { return lector; }
