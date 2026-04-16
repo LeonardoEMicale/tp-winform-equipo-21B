@@ -10,8 +10,8 @@ namespace ConexionBD
     public class AccesoDatos
     {
         private SqlConnection conexion;
-        private SqlCommand comando;
-        private SqlDataReader lector;
+        private SqlCommand comando; 
+        private SqlDataReader lector; 
 
         public SqlDataReader Lector
         {

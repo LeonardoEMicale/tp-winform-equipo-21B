@@ -35,5 +35,23 @@ namespace TPWinForm
                 throw ex;
             }
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            frmAlta formAlta = new frmAlta();
+            formAlta.ShowDialog();
+        }
+
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            frmDetalleArticulo formDetalleArticulo = new frmDetalleArticulo();
+            formDetalleArticulo.ShowDialog();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            frmAlta formModificacion = new frmAlta();
+            formModificacion.ShowDialog();
+        }
     }
 }
