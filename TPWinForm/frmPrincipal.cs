@@ -53,5 +53,11 @@ namespace TPWinForm
             frmAlta formModificacion = new frmAlta();
             formModificacion.ShowDialog();
         }
+
+        private void administrarMarcasYCategoríasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAdminMarcasYCategorias frmAdminMarcasYCategorias = new frmAdminMarcasYCategorias();
+            frmAdminMarcasYCategorias.ShowDialog();
+        }
     }
 }
