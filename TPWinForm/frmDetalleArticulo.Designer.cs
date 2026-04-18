@@ -190,7 +190,10 @@
             this.Controls.Add(this.btnDetalleVolver);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gbArticulo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "frmDetalleArticulo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Detalle de artículo";
             this.Load += new System.EventHandler(this.frmDetalleArticulo_Load);
             this.gbArticulo.ResumeLayout(false);
