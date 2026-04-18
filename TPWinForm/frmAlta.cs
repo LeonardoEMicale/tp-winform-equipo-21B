@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
 using Negocio;
 
 namespace TPWinForm
@@ -34,6 +35,36 @@ namespace TPWinForm
                 MessageBox.Show(ex.ToString());
             }
             
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            Articulo art = new Articulo();
+            ArticuloNegocio artNegocio = new ArticuloNegocio();
+
+            try
+            {
+                art.Codigo = txtCodigo.Text;
+                art.Nombre = txtNombre.Text;
+                art.Descripcion = txtDescripcion.Text;
+                art.Marca = (Marca)cbMarca.SelectedItem;
+                art.Categoria = (Categoria)cbCategoria.SelectedItem;
+                art.Precio = decimal.Parse(txtPrecio.Text);
+
+                artNegocio.agregar(art);
+                MessageBox.Show("Articulo agregado correctamenete");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
