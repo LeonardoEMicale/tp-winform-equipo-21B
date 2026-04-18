@@ -21,9 +21,12 @@ namespace TPWinForm
         private void frmAlta_Load(object sender, EventArgs e)
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
+            CategoriaNegocio categoriaNegocio = new Negocio.CategoriaNegocio();
+
             try
             {
                 cbMarca.DataSource = marcaNegocio.listar();
+                cbCategoria.DataSource = categoriaNegocio.listar();
             }
             catch (Exception ex)
             {

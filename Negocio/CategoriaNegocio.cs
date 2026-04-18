@@ -8,7 +8,7 @@ using ConexionBD;
 
 namespace Negocio
 {
-    internal class CategoriaNegocio
+    public class CategoriaNegocio
     {
         public List<Categoria> listar()
         {
@@ -17,7 +17,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("Select IdCategoria, Descripcion from Categorias");
+                datos.setearConsulta("Select Id, Descripcion From Categorias");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
