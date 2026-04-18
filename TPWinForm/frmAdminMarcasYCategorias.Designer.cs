@@ -43,6 +43,10 @@
             this.txtNombreCategoria = new System.Windows.Forms.TextBox();
             this.lvlNombreCategoria = new System.Windows.Forms.Label();
             this.dgvCategoria = new System.Windows.Forms.DataGridView();
+            this.lblDescripcionMarca = new System.Windows.Forms.Label();
+            this.txtDescripcionMarca = new System.Windows.Forms.TextBox();
+            this.txtDescripcionCategoria = new System.Windows.Forms.TextBox();
+            this.lblDescripcionCategoria = new System.Windows.Forms.Label();
             this.tabcMarcaYCategoria.SuspendLayout();
             this.tabMarca.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarca)).BeginInit();
@@ -63,6 +67,8 @@
             // 
             // tabMarca
             // 
+            this.tabMarca.Controls.Add(this.txtDescripcionMarca);
+            this.tabMarca.Controls.Add(this.lblDescripcionMarca);
             this.tabMarca.Controls.Add(this.btnEliminarMarca);
             this.tabMarca.Controls.Add(this.btnModificarMarca);
             this.tabMarca.Controls.Add(this.btnAgregarMarca);
@@ -106,7 +112,7 @@
             // 
             // txtNombreMarca
             // 
-            this.txtNombreMarca.Location = new System.Drawing.Point(408, 33);
+            this.txtNombreMarca.Location = new System.Drawing.Point(430, 33);
             this.txtNombreMarca.Name = "txtNombreMarca";
             this.txtNombreMarca.Size = new System.Drawing.Size(100, 20);
             this.txtNombreMarca.TabIndex = 2;
@@ -130,6 +136,8 @@
             // 
             // tabCategoria
             // 
+            this.tabCategoria.Controls.Add(this.txtDescripcionCategoria);
+            this.tabCategoria.Controls.Add(this.lblDescripcionCategoria);
             this.tabCategoria.Controls.Add(this.btnEliminarCategoria);
             this.tabCategoria.Controls.Add(this.btnModificarCategoria);
             this.tabCategoria.Controls.Add(this.btnAgregarCategoria);
@@ -139,7 +147,7 @@
             this.tabCategoria.Location = new System.Drawing.Point(4, 22);
             this.tabCategoria.Name = "tabCategoria";
             this.tabCategoria.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCategoria.Size = new System.Drawing.Size(748, 380);
+            this.tabCategoria.Size = new System.Drawing.Size(792, 424);
             this.tabCategoria.TabIndex = 1;
             this.tabCategoria.Text = "Categoría";
             this.tabCategoria.UseVisualStyleBackColor = true;
@@ -173,7 +181,7 @@
             // 
             // txtNombreCategoria
             // 
-            this.txtNombreCategoria.Location = new System.Drawing.Point(408, 33);
+            this.txtNombreCategoria.Location = new System.Drawing.Point(430, 33);
             this.txtNombreCategoria.Name = "txtNombreCategoria";
             this.txtNombreCategoria.Size = new System.Drawing.Size(100, 20);
             this.txtNombreCategoria.TabIndex = 8;
@@ -194,6 +202,38 @@
             this.dgvCategoria.Name = "dgvCategoria";
             this.dgvCategoria.Size = new System.Drawing.Size(332, 337);
             this.dgvCategoria.TabIndex = 6;
+            // 
+            // lblDescripcionMarca
+            // 
+            this.lblDescripcionMarca.AutoSize = true;
+            this.lblDescripcionMarca.Location = new System.Drawing.Point(355, 69);
+            this.lblDescripcionMarca.Name = "lblDescripcionMarca";
+            this.lblDescripcionMarca.Size = new System.Drawing.Size(66, 13);
+            this.lblDescripcionMarca.TabIndex = 6;
+            this.lblDescripcionMarca.Text = "Descripción:";
+            // 
+            // txtDescripcionMarca
+            // 
+            this.txtDescripcionMarca.Location = new System.Drawing.Point(430, 62);
+            this.txtDescripcionMarca.Name = "txtDescripcionMarca";
+            this.txtDescripcionMarca.Size = new System.Drawing.Size(100, 20);
+            this.txtDescripcionMarca.TabIndex = 7;
+            // 
+            // txtDescripcionCategoria
+            // 
+            this.txtDescripcionCategoria.Location = new System.Drawing.Point(430, 62);
+            this.txtDescripcionCategoria.Name = "txtDescripcionCategoria";
+            this.txtDescripcionCategoria.Size = new System.Drawing.Size(100, 20);
+            this.txtDescripcionCategoria.TabIndex = 13;
+            // 
+            // lblDescripcionCategoria
+            // 
+            this.lblDescripcionCategoria.AutoSize = true;
+            this.lblDescripcionCategoria.Location = new System.Drawing.Point(355, 69);
+            this.lblDescripcionCategoria.Name = "lblDescripcionCategoria";
+            this.lblDescripcionCategoria.Size = new System.Drawing.Size(66, 13);
+            this.lblDescripcionCategoria.TabIndex = 12;
+            this.lblDescripcionCategoria.Text = "Descripción:";
             // 
             // frmAdminMarcasYCategorias
             // 
@@ -235,5 +275,9 @@
         private System.Windows.Forms.TextBox txtNombreCategoria;
         private System.Windows.Forms.Label lvlNombreCategoria;
         private System.Windows.Forms.DataGridView dgvCategoria;
+        private System.Windows.Forms.TextBox txtDescripcionMarca;
+        private System.Windows.Forms.Label lblDescripcionMarca;
+        private System.Windows.Forms.TextBox txtDescripcionCategoria;
+        private System.Windows.Forms.Label lblDescripcionCategoria;
     }
 }
