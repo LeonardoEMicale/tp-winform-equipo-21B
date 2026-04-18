@@ -193,6 +193,7 @@
             this.Controls.Add(this.gbArticulo);
             this.Name = "frmAlta";
             this.Text = "Alta y Modificación";
+            this.Load += new System.EventHandler(this.frmAlta_Load);
             this.gbArticulo.ResumeLayout(false);
             this.gbArticulo.PerformLayout();
             this.ResumeLayout(false);

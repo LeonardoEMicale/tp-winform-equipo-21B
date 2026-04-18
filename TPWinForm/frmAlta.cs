@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Negocio;
 
 namespace TPWinForm
 {
@@ -15,6 +16,21 @@ namespace TPWinForm
         public frmAlta()
         {
             InitializeComponent();
+        }
+
+        private void frmAlta_Load(object sender, EventArgs e)
+        {
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+            try
+            {
+                cbMarca.DataSource = marcaNegocio.listar();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
     }
 }

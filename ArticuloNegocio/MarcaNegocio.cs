@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ConexionBD;
 using Dominio;
 
-namespace ArticuloNegocio
+namespace Negocio
 {
     public class MarcaNegocio
     {
@@ -25,7 +25,7 @@ namespace ArticuloNegocio
                 {
                     Marca mar = new Marca();
                     mar.IdMarca = (int)datos.Lector["Id"];
-                    mar.Descripcion = (string)datos.Lector["Desccripcion"];
+                    mar.Descripcion = (string)datos.Lector["Descripcion"];
 
                     lista.Add(mar);
 
