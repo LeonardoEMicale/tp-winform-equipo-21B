@@ -52,22 +52,24 @@
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.Location = new System.Drawing.Point(213, 75);
             this.dgvArticulos.Name = "dgvArticulos";
+            this.dgvArticulos.ReadOnly = true;
+            this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArticulos.Size = new System.Drawing.Size(566, 395);
-            this.dgvArticulos.TabIndex = 0;
+            this.dgvArticulos.TabIndex = 2;
             // 
             // txtFiltro
             // 
             this.txtFiltro.Location = new System.Drawing.Point(213, 31);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(344, 20);
-            this.txtFiltro.TabIndex = 1;
+            this.txtFiltro.TabIndex = 0;
             // 
             // btnFiltro
             // 
             this.btnFiltro.Location = new System.Drawing.Point(563, 31);
             this.btnFiltro.Name = "btnFiltro";
             this.btnFiltro.Size = new System.Drawing.Size(61, 20);
-            this.btnFiltro.TabIndex = 2;
+            this.btnFiltro.TabIndex = 1;
             this.btnFiltro.Text = "Buscar";
             this.btnFiltro.UseVisualStyleBackColor = true;
             // 
