@@ -49,24 +49,28 @@ namespace TPWinForm
         {
             frmAltaMarca formAltaMarca = new frmAltaMarca();
             formAltaMarca.ShowDialog();
+            cargarGrids();
         }
 
         private void btnAgregarCategoria_Click(object sender, EventArgs e)
         {
             frmAltaCategoria formAltaCategoria = new frmAltaCategoria();
             formAltaCategoria.ShowDialog();
+            cargarGrids();
         }
 
         private void btnModificarMarca_Click(object sender, EventArgs e)
         {
             frmAltaMarca formAltaMarca = new frmAltaMarca();
             formAltaMarca.ShowDialog();
+            cargarGrids();
         }
 
         private void btnModificarCategoria_Click(object sender, EventArgs e)
         {
             frmAltaCategoria formAltaCategoria = new frmAltaCategoria();
             formAltaCategoria.ShowDialog();
+            cargarGrids();
         }
 
         private void btnVolverMarca_Click(object sender, EventArgs e)

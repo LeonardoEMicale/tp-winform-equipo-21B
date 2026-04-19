@@ -30,17 +30,17 @@
         {
             this.tabcMarcaYCategoria = new System.Windows.Forms.TabControl();
             this.tabMarca = new System.Windows.Forms.TabPage();
+            this.btnVolverMarca = new System.Windows.Forms.Button();
             this.btnEliminarMarca = new System.Windows.Forms.Button();
             this.btnModificarMarca = new System.Windows.Forms.Button();
             this.btnAgregarMarca = new System.Windows.Forms.Button();
             this.dgvMarca = new System.Windows.Forms.DataGridView();
             this.tabCategoria = new System.Windows.Forms.TabPage();
+            this.btnVolverCategoria = new System.Windows.Forms.Button();
             this.btnEliminarCategoria = new System.Windows.Forms.Button();
             this.btnModificarCategoria = new System.Windows.Forms.Button();
             this.btnAgregarCategoria = new System.Windows.Forms.Button();
             this.dgvCategoria = new System.Windows.Forms.DataGridView();
-            this.btnVolverMarca = new System.Windows.Forms.Button();
-            this.btnVolverCategoria = new System.Windows.Forms.Button();
             this.tabcMarcaYCategoria.SuspendLayout();
             this.tabMarca.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarca)).BeginInit();
@@ -74,6 +74,16 @@
             this.tabMarca.Text = "Marca";
             this.tabMarca.UseVisualStyleBackColor = true;
             // 
+            // btnVolverMarca
+            // 
+            this.btnVolverMarca.Location = new System.Drawing.Point(372, 127);
+            this.btnVolverMarca.Name = "btnVolverMarca";
+            this.btnVolverMarca.Size = new System.Drawing.Size(75, 23);
+            this.btnVolverMarca.TabIndex = 6;
+            this.btnVolverMarca.Text = "Volver";
+            this.btnVolverMarca.UseVisualStyleBackColor = true;
+            this.btnVolverMarca.Click += new System.EventHandler(this.btnVolverMarca_Click);
+            // 
             // btnEliminarMarca
             // 
             this.btnEliminarMarca.Location = new System.Drawing.Point(559, 33);
@@ -106,8 +116,11 @@
             // dgvMarca
             // 
             this.dgvMarca.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMarca.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvMarca.Location = new System.Drawing.Point(17, 33);
+            this.dgvMarca.MultiSelect = false;
             this.dgvMarca.Name = "dgvMarca";
+            this.dgvMarca.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMarca.Size = new System.Drawing.Size(332, 337);
             this.dgvMarca.TabIndex = 0;
             // 
@@ -125,6 +138,16 @@
             this.tabCategoria.TabIndex = 1;
             this.tabCategoria.Text = "Categoría";
             this.tabCategoria.UseVisualStyleBackColor = true;
+            // 
+            // btnVolverCategoria
+            // 
+            this.btnVolverCategoria.Location = new System.Drawing.Point(372, 127);
+            this.btnVolverCategoria.Name = "btnVolverCategoria";
+            this.btnVolverCategoria.Size = new System.Drawing.Size(75, 23);
+            this.btnVolverCategoria.TabIndex = 12;
+            this.btnVolverCategoria.Text = "Volver";
+            this.btnVolverCategoria.UseVisualStyleBackColor = true;
+            this.btnVolverCategoria.Click += new System.EventHandler(this.btnVolverCategoria_Click);
             // 
             // btnEliminarCategoria
             // 
@@ -158,30 +181,13 @@
             // dgvCategoria
             // 
             this.dgvCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategoria.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCategoria.Location = new System.Drawing.Point(17, 33);
+            this.dgvCategoria.MultiSelect = false;
             this.dgvCategoria.Name = "dgvCategoria";
+            this.dgvCategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCategoria.Size = new System.Drawing.Size(332, 337);
             this.dgvCategoria.TabIndex = 6;
-            // 
-            // btnVolverMarca
-            // 
-            this.btnVolverMarca.Location = new System.Drawing.Point(372, 127);
-            this.btnVolverMarca.Name = "btnVolverMarca";
-            this.btnVolverMarca.Size = new System.Drawing.Size(75, 23);
-            this.btnVolverMarca.TabIndex = 6;
-            this.btnVolverMarca.Text = "Volver";
-            this.btnVolverMarca.UseVisualStyleBackColor = true;
-            this.btnVolverMarca.Click += new System.EventHandler(this.btnVolverMarca_Click);
-            // 
-            // btnVolverCategoria
-            // 
-            this.btnVolverCategoria.Location = new System.Drawing.Point(372, 127);
-            this.btnVolverCategoria.Name = "btnVolverCategoria";
-            this.btnVolverCategoria.Size = new System.Drawing.Size(75, 23);
-            this.btnVolverCategoria.TabIndex = 12;
-            this.btnVolverCategoria.Text = "Volver";
-            this.btnVolverCategoria.UseVisualStyleBackColor = true;
-            this.btnVolverCategoria.Click += new System.EventHandler(this.btnVolverCategoria_Click);
             // 
             // frmAdminMarcasYCategorias
             // 
