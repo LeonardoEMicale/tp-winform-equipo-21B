@@ -105,28 +105,28 @@
             this.txtNombre.Location = new System.Drawing.Point(125, 82);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(121, 20);
-            this.txtNombre.TabIndex = 6;
+            this.txtNombre.TabIndex = 1;
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(125, 126);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(121, 20);
-            this.txtDescripcion.TabIndex = 7;
+            this.txtDescripcion.TabIndex = 2;
             // 
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(125, 44);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(121, 20);
-            this.txtCodigo.TabIndex = 8;
+            this.txtCodigo.TabIndex = 0;
             // 
             // txtPrecio
             // 
             this.txtPrecio.Location = new System.Drawing.Point(125, 253);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(121, 20);
-            this.txtPrecio.TabIndex = 10;
+            this.txtPrecio.TabIndex = 5;
             // 
             // cbMarca
             // 
@@ -134,7 +134,7 @@
             this.cbMarca.Location = new System.Drawing.Point(125, 168);
             this.cbMarca.Name = "cbMarca";
             this.cbMarca.Size = new System.Drawing.Size(121, 21);
-            this.cbMarca.TabIndex = 11;
+            this.cbMarca.TabIndex = 3;
             // 
             // cbCategoria
             // 
@@ -142,7 +142,7 @@
             this.cbCategoria.Location = new System.Drawing.Point(125, 215);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(121, 21);
-            this.cbCategoria.TabIndex = 12;
+            this.cbCategoria.TabIndex = 4;
             // 
             // gbArticulo
             // 
@@ -161,7 +161,7 @@
             this.gbArticulo.Location = new System.Drawing.Point(287, 12);
             this.gbArticulo.Name = "gbArticulo";
             this.gbArticulo.Size = new System.Drawing.Size(266, 323);
-            this.gbArticulo.TabIndex = 13;
+            this.gbArticulo.TabIndex = 0;
             this.gbArticulo.TabStop = false;
             this.gbArticulo.Text = "Artículo";
             // 
@@ -170,7 +170,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(287, 360);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 14;
+            this.btnAceptar.TabIndex = 1;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -180,7 +180,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(478, 360);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 15;
+            this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
