@@ -48,7 +48,7 @@
             this.txtDescripcionCategoria.Location = new System.Drawing.Point(151, 100);
             this.txtDescripcionCategoria.Name = "txtDescripcionCategoria";
             this.txtDescripcionCategoria.Size = new System.Drawing.Size(100, 20);
-            this.txtDescripcionCategoria.TabIndex = 6;
+            this.txtDescripcionCategoria.TabIndex = 0;
             // 
             // btnCancelarCategoria
             // 
@@ -72,6 +72,7 @@
             // 
             // frmAltaCategoria
             // 
+            this.AcceptButton = this.btcAceptarCategoria;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(337, 292);
@@ -84,6 +85,7 @@
             this.Name = "frmAltaCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Alta de Categoría";
+            this.Load += new System.EventHandler(this.frmAltaCategoria_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

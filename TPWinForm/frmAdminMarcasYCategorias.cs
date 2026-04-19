@@ -61,14 +61,20 @@ namespace TPWinForm
 
         private void btnModificarMarca_Click(object sender, EventArgs e)
         {
-            frmAltaMarca formAltaMarca = new frmAltaMarca();
+            Marca marcaSeleccionada;
+            marcaSeleccionada = (Marca)dgvMarca.CurrentRow.DataBoundItem;
+
+            frmAltaMarca formAltaMarca = new frmAltaMarca(marcaSeleccionada);
             formAltaMarca.ShowDialog();
             cargarGrids();
         }
 
         private void btnModificarCategoria_Click(object sender, EventArgs e)
         {
-            frmAltaCategoria formAltaCategoria = new frmAltaCategoria();
+            Categoria categoriaSeleccionada;
+            categoriaSeleccionada = (Categoria)dgvCategoria.CurrentRow.DataBoundItem;
+
+            frmAltaCategoria formAltaCategoria = new frmAltaCategoria(categoriaSeleccionada);
             formAltaCategoria.ShowDialog();
             cargarGrids();
         }

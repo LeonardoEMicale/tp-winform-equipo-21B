@@ -39,7 +39,7 @@
             this.btcAceptarMarca.Location = new System.Drawing.Point(82, 163);
             this.btcAceptarMarca.Name = "btcAceptarMarca";
             this.btcAceptarMarca.Size = new System.Drawing.Size(75, 23);
-            this.btcAceptarMarca.TabIndex = 0;
+            this.btcAceptarMarca.TabIndex = 2;
             this.btcAceptarMarca.Text = "Aceptar";
             this.btcAceptarMarca.UseVisualStyleBackColor = true;
             this.btcAceptarMarca.Click += new System.EventHandler(this.btcAceptarMarca_Click);
@@ -59,7 +59,7 @@
             this.txtDescripcionMarca.Location = new System.Drawing.Point(151, 100);
             this.txtDescripcionMarca.Name = "txtDescripcionMarca";
             this.txtDescripcionMarca.Size = new System.Drawing.Size(100, 20);
-            this.txtDescripcionMarca.TabIndex = 2;
+            this.txtDescripcionMarca.TabIndex = 0;
             // 
             // lblDescripcionMarca
             // 
@@ -72,6 +72,7 @@
             // 
             // frmAltaMarca
             // 
+            this.AcceptButton = this.btcAceptarMarca;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(337, 292);
@@ -84,6 +85,7 @@
             this.Name = "frmAltaMarca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Alta de Marca";
+            this.Load += new System.EventHandler(this.frmAltaMarca_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
