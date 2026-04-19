@@ -23,6 +23,11 @@ namespace TPWinForm
 
         private void frmAdminMarcasYCategorias_Load(object sender, EventArgs e)
         {
+            cargarGrids();
+        }
+
+        private void cargarGrids()
+        {
             MarcaNegocio negocioMarca = new MarcaNegocio();
             CategoriaNegocio negocioCategoria = new CategoriaNegocio();
 
@@ -36,8 +41,42 @@ namespace TPWinForm
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void btnAgregarMarca_Click(object sender, EventArgs e)
+        {
+            frmAltaMarca formAltaMarca = new frmAltaMarca();
+            formAltaMarca.ShowDialog();
+        }
+
+        private void btnAgregarCategoria_Click(object sender, EventArgs e)
+        {
+            frmAltaCategoria formAltaCategoria = new frmAltaCategoria();
+            formAltaCategoria.ShowDialog();
+        }
+
+        private void btnModificarMarca_Click(object sender, EventArgs e)
+        {
+            frmAltaMarca formAltaMarca = new frmAltaMarca();
+            formAltaMarca.ShowDialog();
+        }
+
+        private void btnModificarCategoria_Click(object sender, EventArgs e)
+        {
+            frmAltaCategoria formAltaCategoria = new frmAltaCategoria();
+            formAltaCategoria.ShowDialog();
+        }
+
+        private void btnVolverMarca_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnVolverCategoria_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

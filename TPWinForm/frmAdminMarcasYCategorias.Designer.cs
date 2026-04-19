@@ -33,20 +33,14 @@
             this.btnEliminarMarca = new System.Windows.Forms.Button();
             this.btnModificarMarca = new System.Windows.Forms.Button();
             this.btnAgregarMarca = new System.Windows.Forms.Button();
-            this.txtNombreMarca = new System.Windows.Forms.TextBox();
-            this.lblNombreMarca = new System.Windows.Forms.Label();
             this.dgvMarca = new System.Windows.Forms.DataGridView();
             this.tabCategoria = new System.Windows.Forms.TabPage();
             this.btnEliminarCategoria = new System.Windows.Forms.Button();
             this.btnModificarCategoria = new System.Windows.Forms.Button();
             this.btnAgregarCategoria = new System.Windows.Forms.Button();
-            this.txtNombreCategoria = new System.Windows.Forms.TextBox();
-            this.lvlNombreCategoria = new System.Windows.Forms.Label();
             this.dgvCategoria = new System.Windows.Forms.DataGridView();
-            this.lblDescripcionMarca = new System.Windows.Forms.Label();
-            this.txtDescripcionMarca = new System.Windows.Forms.TextBox();
-            this.txtDescripcionCategoria = new System.Windows.Forms.TextBox();
-            this.lblDescripcionCategoria = new System.Windows.Forms.Label();
+            this.btnVolverMarca = new System.Windows.Forms.Button();
+            this.btnVolverCategoria = new System.Windows.Forms.Button();
             this.tabcMarcaYCategoria.SuspendLayout();
             this.tabMarca.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarca)).BeginInit();
@@ -67,13 +61,10 @@
             // 
             // tabMarca
             // 
-            this.tabMarca.Controls.Add(this.txtDescripcionMarca);
-            this.tabMarca.Controls.Add(this.lblDescripcionMarca);
+            this.tabMarca.Controls.Add(this.btnVolverMarca);
             this.tabMarca.Controls.Add(this.btnEliminarMarca);
             this.tabMarca.Controls.Add(this.btnModificarMarca);
             this.tabMarca.Controls.Add(this.btnAgregarMarca);
-            this.tabMarca.Controls.Add(this.txtNombreMarca);
-            this.tabMarca.Controls.Add(this.lblNombreMarca);
             this.tabMarca.Controls.Add(this.dgvMarca);
             this.tabMarca.Location = new System.Drawing.Point(4, 22);
             this.tabMarca.Name = "tabMarca";
@@ -85,7 +76,7 @@
             // 
             // btnEliminarMarca
             // 
-            this.btnEliminarMarca.Location = new System.Drawing.Point(545, 100);
+            this.btnEliminarMarca.Location = new System.Drawing.Point(559, 33);
             this.btnEliminarMarca.Name = "btnEliminarMarca";
             this.btnEliminarMarca.Size = new System.Drawing.Size(75, 23);
             this.btnEliminarMarca.TabIndex = 5;
@@ -94,37 +85,23 @@
             // 
             // btnModificarMarca
             // 
-            this.btnModificarMarca.Location = new System.Drawing.Point(452, 100);
+            this.btnModificarMarca.Location = new System.Drawing.Point(466, 33);
             this.btnModificarMarca.Name = "btnModificarMarca";
             this.btnModificarMarca.Size = new System.Drawing.Size(75, 23);
             this.btnModificarMarca.TabIndex = 4;
             this.btnModificarMarca.Text = "Modificar";
             this.btnModificarMarca.UseVisualStyleBackColor = true;
+            this.btnModificarMarca.Click += new System.EventHandler(this.btnModificarMarca_Click);
             // 
             // btnAgregarMarca
             // 
-            this.btnAgregarMarca.Location = new System.Drawing.Point(358, 100);
+            this.btnAgregarMarca.Location = new System.Drawing.Point(372, 33);
             this.btnAgregarMarca.Name = "btnAgregarMarca";
             this.btnAgregarMarca.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarMarca.TabIndex = 3;
             this.btnAgregarMarca.Text = "Agregar";
             this.btnAgregarMarca.UseVisualStyleBackColor = true;
-            // 
-            // txtNombreMarca
-            // 
-            this.txtNombreMarca.Location = new System.Drawing.Point(430, 33);
-            this.txtNombreMarca.Name = "txtNombreMarca";
-            this.txtNombreMarca.Size = new System.Drawing.Size(100, 20);
-            this.txtNombreMarca.TabIndex = 2;
-            // 
-            // lblNombreMarca
-            // 
-            this.lblNombreMarca.AutoSize = true;
-            this.lblNombreMarca.Location = new System.Drawing.Point(355, 40);
-            this.lblNombreMarca.Name = "lblNombreMarca";
-            this.lblNombreMarca.Size = new System.Drawing.Size(47, 13);
-            this.lblNombreMarca.TabIndex = 1;
-            this.lblNombreMarca.Text = "Nombre:";
+            this.btnAgregarMarca.Click += new System.EventHandler(this.btnAgregarMarca_Click);
             // 
             // dgvMarca
             // 
@@ -136,13 +113,10 @@
             // 
             // tabCategoria
             // 
-            this.tabCategoria.Controls.Add(this.txtDescripcionCategoria);
-            this.tabCategoria.Controls.Add(this.lblDescripcionCategoria);
+            this.tabCategoria.Controls.Add(this.btnVolverCategoria);
             this.tabCategoria.Controls.Add(this.btnEliminarCategoria);
             this.tabCategoria.Controls.Add(this.btnModificarCategoria);
             this.tabCategoria.Controls.Add(this.btnAgregarCategoria);
-            this.tabCategoria.Controls.Add(this.txtNombreCategoria);
-            this.tabCategoria.Controls.Add(this.lvlNombreCategoria);
             this.tabCategoria.Controls.Add(this.dgvCategoria);
             this.tabCategoria.Location = new System.Drawing.Point(4, 22);
             this.tabCategoria.Name = "tabCategoria";
@@ -154,7 +128,7 @@
             // 
             // btnEliminarCategoria
             // 
-            this.btnEliminarCategoria.Location = new System.Drawing.Point(545, 100);
+            this.btnEliminarCategoria.Location = new System.Drawing.Point(559, 33);
             this.btnEliminarCategoria.Name = "btnEliminarCategoria";
             this.btnEliminarCategoria.Size = new System.Drawing.Size(75, 23);
             this.btnEliminarCategoria.TabIndex = 11;
@@ -163,37 +137,23 @@
             // 
             // btnModificarCategoria
             // 
-            this.btnModificarCategoria.Location = new System.Drawing.Point(452, 100);
+            this.btnModificarCategoria.Location = new System.Drawing.Point(466, 33);
             this.btnModificarCategoria.Name = "btnModificarCategoria";
             this.btnModificarCategoria.Size = new System.Drawing.Size(75, 23);
             this.btnModificarCategoria.TabIndex = 10;
             this.btnModificarCategoria.Text = "Modificar";
             this.btnModificarCategoria.UseVisualStyleBackColor = true;
+            this.btnModificarCategoria.Click += new System.EventHandler(this.btnModificarCategoria_Click);
             // 
             // btnAgregarCategoria
             // 
-            this.btnAgregarCategoria.Location = new System.Drawing.Point(358, 100);
+            this.btnAgregarCategoria.Location = new System.Drawing.Point(372, 33);
             this.btnAgregarCategoria.Name = "btnAgregarCategoria";
             this.btnAgregarCategoria.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarCategoria.TabIndex = 9;
             this.btnAgregarCategoria.Text = "Agregar";
             this.btnAgregarCategoria.UseVisualStyleBackColor = true;
-            // 
-            // txtNombreCategoria
-            // 
-            this.txtNombreCategoria.Location = new System.Drawing.Point(430, 33);
-            this.txtNombreCategoria.Name = "txtNombreCategoria";
-            this.txtNombreCategoria.Size = new System.Drawing.Size(100, 20);
-            this.txtNombreCategoria.TabIndex = 8;
-            // 
-            // lvlNombreCategoria
-            // 
-            this.lvlNombreCategoria.AutoSize = true;
-            this.lvlNombreCategoria.Location = new System.Drawing.Point(355, 40);
-            this.lvlNombreCategoria.Name = "lvlNombreCategoria";
-            this.lvlNombreCategoria.Size = new System.Drawing.Size(47, 13);
-            this.lvlNombreCategoria.TabIndex = 7;
-            this.lvlNombreCategoria.Text = "Nombre:";
+            this.btnAgregarCategoria.Click += new System.EventHandler(this.btnAgregarCategoria_Click);
             // 
             // dgvCategoria
             // 
@@ -203,37 +163,25 @@
             this.dgvCategoria.Size = new System.Drawing.Size(332, 337);
             this.dgvCategoria.TabIndex = 6;
             // 
-            // lblDescripcionMarca
+            // btnVolverMarca
             // 
-            this.lblDescripcionMarca.AutoSize = true;
-            this.lblDescripcionMarca.Location = new System.Drawing.Point(355, 69);
-            this.lblDescripcionMarca.Name = "lblDescripcionMarca";
-            this.lblDescripcionMarca.Size = new System.Drawing.Size(66, 13);
-            this.lblDescripcionMarca.TabIndex = 6;
-            this.lblDescripcionMarca.Text = "Descripción:";
+            this.btnVolverMarca.Location = new System.Drawing.Point(372, 127);
+            this.btnVolverMarca.Name = "btnVolverMarca";
+            this.btnVolverMarca.Size = new System.Drawing.Size(75, 23);
+            this.btnVolverMarca.TabIndex = 6;
+            this.btnVolverMarca.Text = "Volver";
+            this.btnVolverMarca.UseVisualStyleBackColor = true;
+            this.btnVolverMarca.Click += new System.EventHandler(this.btnVolverMarca_Click);
             // 
-            // txtDescripcionMarca
+            // btnVolverCategoria
             // 
-            this.txtDescripcionMarca.Location = new System.Drawing.Point(430, 62);
-            this.txtDescripcionMarca.Name = "txtDescripcionMarca";
-            this.txtDescripcionMarca.Size = new System.Drawing.Size(100, 20);
-            this.txtDescripcionMarca.TabIndex = 7;
-            // 
-            // txtDescripcionCategoria
-            // 
-            this.txtDescripcionCategoria.Location = new System.Drawing.Point(430, 62);
-            this.txtDescripcionCategoria.Name = "txtDescripcionCategoria";
-            this.txtDescripcionCategoria.Size = new System.Drawing.Size(100, 20);
-            this.txtDescripcionCategoria.TabIndex = 13;
-            // 
-            // lblDescripcionCategoria
-            // 
-            this.lblDescripcionCategoria.AutoSize = true;
-            this.lblDescripcionCategoria.Location = new System.Drawing.Point(355, 69);
-            this.lblDescripcionCategoria.Name = "lblDescripcionCategoria";
-            this.lblDescripcionCategoria.Size = new System.Drawing.Size(66, 13);
-            this.lblDescripcionCategoria.TabIndex = 12;
-            this.lblDescripcionCategoria.Text = "Descripción:";
+            this.btnVolverCategoria.Location = new System.Drawing.Point(372, 127);
+            this.btnVolverCategoria.Name = "btnVolverCategoria";
+            this.btnVolverCategoria.Size = new System.Drawing.Size(75, 23);
+            this.btnVolverCategoria.TabIndex = 12;
+            this.btnVolverCategoria.Text = "Volver";
+            this.btnVolverCategoria.UseVisualStyleBackColor = true;
+            this.btnVolverCategoria.Click += new System.EventHandler(this.btnVolverCategoria_Click);
             // 
             // frmAdminMarcasYCategorias
             // 
@@ -249,10 +197,8 @@
             this.Load += new System.EventHandler(this.frmAdminMarcasYCategorias_Load);
             this.tabcMarcaYCategoria.ResumeLayout(false);
             this.tabMarca.ResumeLayout(false);
-            this.tabMarca.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarca)).EndInit();
             this.tabCategoria.ResumeLayout(false);
-            this.tabCategoria.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).EndInit();
             this.ResumeLayout(false);
 
@@ -263,21 +209,15 @@
         private System.Windows.Forms.TabControl tabcMarcaYCategoria;
         private System.Windows.Forms.TabPage tabMarca;
         private System.Windows.Forms.TabPage tabCategoria;
-        private System.Windows.Forms.Label lblNombreMarca;
         private System.Windows.Forms.DataGridView dgvMarca;
-        private System.Windows.Forms.TextBox txtNombreMarca;
         private System.Windows.Forms.Button btnEliminarMarca;
         private System.Windows.Forms.Button btnModificarMarca;
         private System.Windows.Forms.Button btnAgregarMarca;
         private System.Windows.Forms.Button btnEliminarCategoria;
         private System.Windows.Forms.Button btnModificarCategoria;
         private System.Windows.Forms.Button btnAgregarCategoria;
-        private System.Windows.Forms.TextBox txtNombreCategoria;
-        private System.Windows.Forms.Label lvlNombreCategoria;
         private System.Windows.Forms.DataGridView dgvCategoria;
-        private System.Windows.Forms.TextBox txtDescripcionMarca;
-        private System.Windows.Forms.Label lblDescripcionMarca;
-        private System.Windows.Forms.TextBox txtDescripcionCategoria;
-        private System.Windows.Forms.Label lblDescripcionCategoria;
+        private System.Windows.Forms.Button btnVolverMarca;
+        private System.Windows.Forms.Button btnVolverCategoria;
     }
 }
