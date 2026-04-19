@@ -59,5 +59,26 @@ namespace TPWinForm
             frmAdminMarcasYCategorias frmAdminMarcasYCategorias = new frmAdminMarcasYCategorias();
             frmAdminMarcasYCategorias.ShowDialog();
         }
+
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
+        {
+            ImagenNegocio imgNegocio = new ImagenNegocio();
+            Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            string urlImagen = imgNegocio.buscarImagen(artSeleccionado.IdArticulo);
+            cargarImagen(urlImagen);
+        }
+
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbImagen.Load(imagen);
+            }
+            catch (Exception)
+            { 
+                pbImagen.Load("https://community.softr.io/uploads/db9110/original/2X/7/74e6e7e382d0ff5d7773ca9a87e6f6f8817a68a6.jpeg");
+            }
+        }
     }
 }
