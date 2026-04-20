@@ -88,5 +88,49 @@ namespace TPWinForm
         {
             Close();
         }
+
+        private void btnEliminarMarca_Click(object sender, EventArgs e)
+        {
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+            Marca marcaSeleccionada;
+
+            try
+            {
+                DialogResult eleccion = MessageBox.Show("Está seguro que desea eliminar la marca?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (eleccion == DialogResult.Yes)
+                {
+                    marcaSeleccionada = (Marca)dgvMarca.CurrentRow.DataBoundItem;
+                    marcaNegocio.eliminar(marcaSeleccionada.IdMarca);
+                    cargarGrids();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void btnEliminarCategoria_Click(object sender, EventArgs e)
+        {
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+            Categoria categoriaSeleccionada;
+
+            try
+            {
+                DialogResult eleccion = MessageBox.Show("Está seguro que desea eliminar la categoría?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(eleccion == DialogResult.Yes)
+                {
+                categoriaSeleccionada = (Categoria)dgvCategoria.CurrentRow.DataBoundItem;
+                categoriaNegocio.eliminar(categoriaSeleccionada.IdCategoria);
+                cargarGrids();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }
