@@ -43,6 +43,11 @@ namespace TPWinForm
         {
             frmAlta formAlta = new frmAlta();
             formAlta.ShowDialog();
+
+            // Actualizo grilla luego de agregar un nuevo articulo
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            listaArticulo = negocio.listar();
+            dgvArticulos.DataSource = listaArticulo;
         }
 
         private void btnDetalle_Click(object sender, EventArgs e)
