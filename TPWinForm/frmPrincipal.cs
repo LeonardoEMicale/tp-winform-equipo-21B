@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Negocio;
+using Utilidades;
 
 namespace TPWinForm
 {
@@ -77,45 +78,36 @@ namespace TPWinForm
             listaImagenes = imgNegocio.buscarImagenes(artSeleccionado.IdArticulo);
             indiceImagen = 0;
 
-            cargarImagen(listaImagenes);
-        }
-
-        private void cargarImagen(List<string> listaURL)
-        {
-            try
-            {
-                if(listaURL != null && listaURL.Count > 0)
-                    
-                    pbImagen.Load(listaURL[indiceImagen]);
-            }
-            catch (Exception)
-            { 
-                pbImagen.Load("https://community.softr.io/uploads/db9110/original/2X/7/74e6e7e382d0ff5d7773ca9a87e6f6f8817a68a6.jpeg");
-            }
+            Utils util = new Utils();
+            util.cargarImagen(listaImagenes, pbImagen, indiceImagen);
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
+            Utils util = new Utils();
+
             if(indiceImagen == listaImagenes.Count - 1)
             {
                 indiceImagen = 0;
-                cargarImagen(listaImagenes);
+                util.cargarImagen(listaImagenes, pbImagen, indiceImagen);
             }
             else
             {
                 indiceImagen++;
-                cargarImagen(listaImagenes);
+                util.cargarImagen(listaImagenes, pbImagen, indiceImagen);
             }
         }
 
         private void btnAnterior_Click(object sender, EventArgs e)
         {
+            Utils util = new Utils();
+
             if (indiceImagen == 0)
                 indiceImagen = listaImagenes.Count - 1;
             else
                 indiceImagen--;
-            
-            cargarImagen(listaImagenes);
+
+            util.cargarImagen(listaImagenes, pbImagen, indiceImagen);
         }
     }
 }
