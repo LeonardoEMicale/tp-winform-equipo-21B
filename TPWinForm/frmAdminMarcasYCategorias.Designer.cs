@@ -116,11 +116,15 @@
             // 
             // dgvMarca
             // 
+            this.dgvMarca.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMarca.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvMarca.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvMarca.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMarca.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvMarca.Location = new System.Drawing.Point(17, 33);
             this.dgvMarca.MultiSelect = false;
             this.dgvMarca.Name = "dgvMarca";
+            this.dgvMarca.ReadOnly = true;
             this.dgvMarca.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMarca.Size = new System.Drawing.Size(332, 337);
             this.dgvMarca.TabIndex = 0;
@@ -182,11 +186,15 @@
             // 
             // dgvCategoria
             // 
+            this.dgvCategoria.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCategoria.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvCategoria.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCategoria.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvCategoria.Location = new System.Drawing.Point(17, 33);
             this.dgvCategoria.MultiSelect = false;
             this.dgvCategoria.Name = "dgvCategoria";
+            this.dgvCategoria.ReadOnly = true;
             this.dgvCategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCategoria.Size = new System.Drawing.Size(332, 337);
             this.dgvCategoria.TabIndex = 6;
