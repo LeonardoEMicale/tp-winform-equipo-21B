@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -29,6 +30,12 @@ namespace TPWinForm
 
         private void btcAceptarCategoria_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtDescripcionCategoria.Text))
+            {
+                MessageBox.Show("La descripción de la marca es obligatoria.", "Campo obligatorio");
+                return;
+            }
+
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             try
             {
@@ -40,7 +47,17 @@ namespace TPWinForm
 
                 categoria.Descripcion = txtDescripcionCategoria.Text;
 
-                if(categoria.IdCategoria != 0)
+                //Valida input con letras y números únicamente
+                Regex soloAlfanumerico = new Regex("^[a-zA-Z0-9 ]*$");
+
+                if (!soloAlfanumerico.IsMatch(categoria.Descripcion))
+                {
+                    MessageBox.Show("Solo se permiten letras y números", "Formato incorrecto");
+                    return;
+                }
+
+                //Si tiene Id ya existe, es modificar.
+                if (categoria.IdCategoria != 0)
                 {
                     categoriaNegocio.modificar(categoria);
                     MessageBox.Show("Categoria modificada con éxito.");
@@ -55,7 +72,6 @@ namespace TPWinForm
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
         }

@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -29,6 +30,12 @@ namespace TPWinForm
 
         private void btcAceptarMarca_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtDescripcionMarca.Text))
+            {
+                MessageBox.Show("La descripción de la marca es obligatoria.", "Campo obligatorio");
+                return;
+            }
+
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             try
             {
@@ -40,7 +47,16 @@ namespace TPWinForm
 
                 marca.Descripcion = txtDescripcionMarca.Text;
 
-                if(marca.IdMarca != 0)
+                //Valida input con letras y números únicamente
+                Regex soloAlfanumerico = new Regex("^[a-zA-Z0-9 ]*$");
+
+                if (!soloAlfanumerico.IsMatch(marca.Descripcion))
+                {
+                    MessageBox.Show("Solo se permiten letras y números", "Formato incorrecto");
+                    return;
+                }
+
+                if (marca.IdMarca != 0)
                 {
                     marcaNegocio.modificar(marca);
                     MessageBox.Show("Marca modifica con éxito.");
