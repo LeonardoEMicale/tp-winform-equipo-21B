@@ -14,7 +14,10 @@ namespace TPWinForm
 {
     public partial class frmPrincipal : Form
     {
+
         private List<Articulo> listaArticulo;
+        private List<string> listaImagenes;
+        private int indiceImagen;
 
         public frmPrincipal()
         {
@@ -65,20 +68,49 @@ namespace TPWinForm
             ImagenNegocio imgNegocio = new ImagenNegocio();
             Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
 
-            string urlImagen = imgNegocio.buscarImagen(artSeleccionado.IdArticulo);
-            cargarImagen(urlImagen);
+            // Guardo todas las imagenes encontrada en la base de datos
+            listaImagenes = imgNegocio.buscarImagenes(artSeleccionado.IdArticulo);
+            indiceImagen = 0;
+
+            cargarImagen(listaImagenes);
         }
 
-        private void cargarImagen(string imagen)
+        private void cargarImagen(List<string> listaURL)
         {
             try
             {
-                pbImagen.Load(imagen);
+                if(listaURL != null && listaURL.Count > 0)
+                    
+                    pbImagen.Load(listaURL[indiceImagen]);
             }
             catch (Exception)
             { 
                 pbImagen.Load("https://community.softr.io/uploads/db9110/original/2X/7/74e6e7e382d0ff5d7773ca9a87e6f6f8817a68a6.jpeg");
             }
+        }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            if(indiceImagen == listaImagenes.Count - 1)
+            {
+                indiceImagen = 0;
+                cargarImagen(listaImagenes);
+            }
+            else
+            {
+                indiceImagen++;
+                cargarImagen(listaImagenes);
+            }
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            if (indiceImagen == 0)
+                indiceImagen = listaImagenes.Count - 1;
+            else
+                indiceImagen--;
+            
+            cargarImagen(listaImagenes);
         }
     }
 }

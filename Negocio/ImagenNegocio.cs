@@ -10,10 +10,10 @@ namespace Negocio
 {
     public class ImagenNegocio
     {
-        public string buscarImagen(int articuloID)
+        public List<string> buscarImagenes(int articuloID)
         {
             AccesoDatos datos = new AccesoDatos();
-            string urlImagen = "";
+            List<string> listaImg = new List<string>();
 
             try
             {
@@ -22,10 +22,10 @@ namespace Negocio
 
                 while (datos.Lector.Read())
                 {
-                    urlImagen = (string)datos.Lector["ImagenUrl"];
+                    listaImg.Add((string)datos.Lector["ImagenUrl"]);
                 }
 
-                return urlImagen;
+                return listaImg;
 
             }
             catch (Exception ex)
