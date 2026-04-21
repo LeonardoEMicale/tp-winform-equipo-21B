@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dominio;
+using Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Dominio;
-using Negocio;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TPWinForm
 {
@@ -76,6 +77,22 @@ namespace TPWinForm
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtImagenUrl_Leave(object sender, EventArgs e)
+        {
+            cargarImagen(txtImagenUrl.Text);
+        }
+        private void cargarImagen(string imagen)
+        {
+            try
+            { 
+                    pbImagenAlta.Load(imagen);
+            }
+            catch (Exception)
+            {
+                pbImagenAlta.Load("https://community.softr.io/uploads/db9110/original/2X/7/74e6e7e382d0ff5d7773ca9a87e6f6f8817a68a6.jpeg");
+            }
         }
     }
 }
