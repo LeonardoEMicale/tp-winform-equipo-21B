@@ -43,6 +43,8 @@
             this.gbArticulo = new System.Windows.Forms.GroupBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.lblImagenURL = new System.Windows.Forms.Label();
+            this.txtImagenUrl = new System.Windows.Forms.TextBox();
             this.gbArticulo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,7 +87,7 @@
             // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(3, 223);
+            this.lblCategoria.Location = new System.Drawing.Point(3, 215);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(54, 13);
             this.lblCategoria.TabIndex = 4;
@@ -123,7 +125,7 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(125, 253);
+            this.txtPrecio.Location = new System.Drawing.Point(125, 249);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(121, 20);
             this.txtPrecio.TabIndex = 5;
@@ -139,13 +141,15 @@
             // cbCategoria
             // 
             this.cbCategoria.FormattingEnabled = true;
-            this.cbCategoria.Location = new System.Drawing.Point(125, 215);
+            this.cbCategoria.Location = new System.Drawing.Point(125, 207);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(121, 21);
             this.cbCategoria.TabIndex = 4;
             // 
             // gbArticulo
             // 
+            this.gbArticulo.Controls.Add(this.txtImagenUrl);
+            this.gbArticulo.Controls.Add(this.lblImagenURL);
             this.gbArticulo.Controls.Add(this.txtCodigo);
             this.gbArticulo.Controls.Add(this.cbCategoria);
             this.gbArticulo.Controls.Add(this.cbMarca);
@@ -185,11 +189,27 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // lblImagenURL
+            // 
+            this.lblImagenURL.AutoSize = true;
+            this.lblImagenURL.Location = new System.Drawing.Point(3, 292);
+            this.lblImagenURL.Name = "lblImagenURL";
+            this.lblImagenURL.Size = new System.Drawing.Size(55, 13);
+            this.lblImagenURL.TabIndex = 6;
+            this.lblImagenURL.Text = "ImagenUrl";
+            // 
+            // txtImagenUrl
+            // 
+            this.txtImagenUrl.Location = new System.Drawing.Point(125, 285);
+            this.txtImagenUrl.Name = "txtImagenUrl";
+            this.txtImagenUrl.Size = new System.Drawing.Size(121, 20);
+            this.txtImagenUrl.TabIndex = 7;
+            // 
             // frmAlta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 384);
+            this.ClientSize = new System.Drawing.Size(744, 420);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.gbArticulo);
@@ -222,5 +242,7 @@
         private System.Windows.Forms.GroupBox gbArticulo;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.TextBox txtImagenUrl;
+        private System.Windows.Forms.Label lblImagenURL;
     }
 }

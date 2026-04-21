@@ -48,15 +48,27 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
-        public void agregar(Articulo nuevo)
+        public int agregar(Articulo nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("Insert into Articulos(Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio)VALUES(" + nuevo.Codigo + ", '" + nuevo.Nombre + " ', '" + nuevo.Descripcion + "', @IdMarca, @IdCategoria, '" + nuevo.Precio + " ')");
+                datos.setearConsulta("Insert into Articulos(Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio)VALUES(@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio); SELECT scope_identity();");
+                datos.setearParametros("@Codigo", nuevo.Codigo);
+                datos.setearParametros("@Nombre", nuevo.Nombre);
+                datos.setearParametros("@Descripcion", nuevo.Descripcion);
                 datos.setearParametros("@IdMarca", nuevo.Marca.IdMarca);
                 datos.setearParametros("@IdCategoria", nuevo.Categoria.IdCategoria);
-                datos.ejecutarAccion();
+                datos.setearParametros("@Precio", nuevo.Precio);
+
+                // Ejecutamos en lectura para que nos devuela la ID
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                    return int.Parse(datos.Lector[0].ToString());
+                else
+                    return -1;
+
             }
             catch (Exception ex)
             {

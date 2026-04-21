@@ -41,6 +41,8 @@ namespace TPWinForm
         {
             Articulo art = new Articulo();
             ArticuloNegocio artNegocio = new ArticuloNegocio();
+            Imagen img = new Imagen();
+            ImagenNegocio imgNegocio = new ImagenNegocio();
 
             try
             {
@@ -51,8 +53,17 @@ namespace TPWinForm
                 art.Categoria = (Categoria)cbCategoria.SelectedItem;
                 art.Precio = decimal.Parse(txtPrecio.Text);
 
-                artNegocio.agregar(art);
+                int IDrecuperado = artNegocio.agregar(art);
+
+                if (IDrecuperado != -1)
+                {
+                    img.IdArticulo = int.Parse(IDrecuperado.ToString());
+                    img.UrlImagen = txtImagenUrl.Text;
+                    imgNegocio.agregarImagen(img);
+                }
+
                 MessageBox.Show("Articulo agregado correctamenete");
+                this.Close();
             }
             catch (Exception)
             {
