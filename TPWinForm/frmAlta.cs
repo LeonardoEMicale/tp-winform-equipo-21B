@@ -48,6 +48,8 @@ namespace TPWinForm
 
                 if(articulo != null)
                 {
+                    btnAnterior.Visible = true;
+                    btnSiguiente.Visible = true;
                     ImagenNegocio imgNegocio = new ImagenNegocio();
                     Utils util = new Utils();
 
@@ -61,6 +63,11 @@ namespace TPWinForm
 
                     cbMarca.SelectedValue = articulo.Marca.IdMarca;
                     cbCategoria.SelectedValue = articulo.Categoria.IdCategoria;
+                }
+                else
+                {
+                    btnAnterior.Visible = false;
+                    btnSiguiente.Visible = false;
                 }
 
             }
