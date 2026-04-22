@@ -47,8 +47,7 @@ namespace TPWinForm
 
             // Actualizo grilla luego de agregar un nuevo articulo
             ArticuloNegocio negocio = new ArticuloNegocio();
-            listaArticulo = negocio.listar();
-            dgvArticulos.DataSource = listaArticulo;
+            cargarGrids();
         }
 
         private void btnDetalle_Click(object sender, EventArgs e)
@@ -111,6 +110,42 @@ namespace TPWinForm
                 indiceImagen--;
 
             util.cargarImagen(listaImagenes, pbImagen, indiceImagen);
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio artNegocio = new ArticuloNegocio();
+          
+            try
+            {
+                DialogResult eleccion = MessageBox.Show("Está seguro que desea eliminar el articulo?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (eleccion == DialogResult.Yes)
+                {
+                    Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    artNegocio.eliminar(artSeleccionado.IdArticulo);
+
+                    cargarGrids();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        private void cargarGrids()
+        {
+            ArticuloNegocio artNegocio = new ArticuloNegocio();
+
+            try
+            {
+                listaArticulo = artNegocio.listar();
+                dgvArticulos.DataSource = listaArticulo;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
