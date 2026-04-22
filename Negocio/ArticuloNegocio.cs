@@ -17,7 +17,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("select A.Id, Codigo, Nombre, A.Descripcion AS DescripcionA, M.Descripcion AS DescripcionM, C.Descripcion AS DescripcionC, Precio from Articulos A, Marcas M, Categorias C where A.IdMarca = M.Id and IdCategoria = C.Id");
+                datos.setearConsulta("select A.Id, Codigo, Nombre, A.Descripcion AS DescripcionA, M.Descripcion AS DescripcionM, C.Descripcion AS DescripcionC, Precio, A.IdMarca, A.IdCategoria from Articulos A, Marcas M, Categorias C where A.IdMarca = M.Id and IdCategoria = C.Id");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -28,8 +28,10 @@ namespace Negocio
                     art.Nombre = (string)datos.Lector["Nombre"];
                     art.Descripcion = (string)datos.Lector["DescripcionA"];
                     art.Marca = new Marca();
+                    art.Marca.IdMarca = (int)datos.Lector["IdMarca"];
                     art.Marca.Descripcion = (string)datos.Lector["DescripcionM"];
                     art.Categoria = new Categoria();
+                    art.Categoria.IdCategoria = (int)datos.Lector["IdCategoria"];
                     art.Categoria.Descripcion = (String)datos.Lector["DescripcionC"];
                     art.Precio = (decimal)datos.Lector["Precio"];
 
@@ -79,6 +81,30 @@ namespace Negocio
             {
                 datos.cerrarConexion();
             }
+        }
+        public void modificar(Articulo modificar)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("UPDATE Articulos set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, IdCategoria = @IdCategoria, Precio = @Precio Where Id = @IdArticulo");
+                datos.setearParametros("@IdArticulo", modificar.IdArticulo);
+                datos.setearParametros("@Codigo", modificar.Codigo);
+                datos.setearParametros("@Nombre", modificar.Nombre);
+                datos.setearParametros("@Descripcion", modificar.Descripcion);
+                datos.setearParametros("@IdMarca", modificar.Marca.IdMarca);
+                datos.setearParametros("@IdCategoria", modificar.Categoria.IdCategoria);
+                datos.setearParametros("@Precio", modificar.Precio);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
     }
 }

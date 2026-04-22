@@ -9,15 +9,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Utilidades;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace TPWinForm
 {
     public partial class frmAlta : Form
     {
+        private Articulo articulo = null;
+        private List<Imagen> listaImagenes;
+        private int indiceImagen;
+
         public frmAlta()
         {
             InitializeComponent();
+        }
+        public frmAlta(Articulo articulo)
+        {
+            InitializeComponent();
+            this.articulo = articulo;
+            Text = "Modificar Articulo";
         }
 
         private void frmAlta_Load(object sender, EventArgs e)
@@ -28,7 +39,30 @@ namespace TPWinForm
             try
             {
                 cbMarca.DataSource = marcaNegocio.listar();
+                cbMarca.ValueMember = "IdMarca";
+                cbMarca.DisplayMember = "Descripcion";
+
                 cbCategoria.DataSource = categoriaNegocio.listar();
+                cbCategoria.ValueMember = "IdCategoria";
+                cbCategoria.DisplayMember = "Descripcion";
+
+                if(articulo != null)
+                {
+                    ImagenNegocio imgNegocio = new ImagenNegocio();
+                    Utils util = new Utils();
+
+                    txtCodigo.Text = articulo.Codigo;
+                    txtNombre.Text = articulo.Nombre;
+                    txtDescripcion.Text = articulo.Descripcion;
+                    txtPrecio.Text = articulo.Precio.ToString();
+                    listaImagenes = imgNegocio.buscarImagenes(articulo.IdArticulo);
+                    txtImagenUrl.Text = listaImagenes[indiceImagen].UrlImagen;
+                    util.cargarImagen(listaImagenes, pbImagenAlta, indiceImagen);
+
+                    cbMarca.SelectedValue = articulo.Marca.IdMarca;
+                    cbCategoria.SelectedValue = articulo.Categoria.IdCategoria;
+                }
+
             }
             catch (Exception ex)
             {
@@ -40,36 +74,50 @@ namespace TPWinForm
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Articulo art = new Articulo();
             ArticuloNegocio artNegocio = new ArticuloNegocio();
-            Imagen img = new Imagen();
             ImagenNegocio imgNegocio = new ImagenNegocio();
 
             try
             {
-                art.Codigo = txtCodigo.Text;
-                art.Nombre = txtNombre.Text;
-                art.Descripcion = txtDescripcion.Text;
-                art.Marca = (Marca)cbMarca.SelectedItem;
-                art.Categoria = (Categoria)cbCategoria.SelectedItem;
-                art.Precio = decimal.Parse(txtPrecio.Text);
-
-                int IDrecuperado = artNegocio.agregar(art);
-
-                if (IDrecuperado != -1)
+                if (articulo == null)
                 {
-                    img.IdArticulo = int.Parse(IDrecuperado.ToString());
-                    img.UrlImagen = txtImagenUrl.Text;
-                    imgNegocio.agregarImagen(img);
+                    articulo = new Articulo();
                 }
 
-                MessageBox.Show("Articulo agregado correctamenete");
+                articulo.Codigo = txtCodigo.Text;
+                articulo.Nombre = txtNombre.Text;
+                articulo.Descripcion = txtDescripcion.Text;
+                articulo.Marca = (Marca)cbMarca.SelectedItem;
+                articulo.Categoria = (Categoria)cbCategoria.SelectedItem;
+                articulo.Precio = decimal.Parse(txtPrecio.Text);
+
+
+                if(articulo.IdArticulo != 0)
+                {
+                    artNegocio.modificar(articulo);
+                    imgNegocio.modificarImagen(listaImagenes[indiceImagen].IdImagen, txtImagenUrl.Text);
+                    MessageBox.Show("Articulo modificado correctamenete");
+                }
+                else
+                {
+                    int IDrecuperado = artNegocio.agregar(articulo);
+                    Imagen img = new Imagen();
+                    if (IDrecuperado != -1)
+                    {
+                        img.IdArticulo = int.Parse(IDrecuperado.ToString());
+                        img.UrlImagen = txtImagenUrl.Text;
+                        imgNegocio.agregarImagen(img);
+                    }
+
+                    MessageBox.Show("Articulo agregado correctamenete");
+                }
+               
                 this.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
             
         }
@@ -79,20 +127,45 @@ namespace TPWinForm
             this.Close();
         }
 
+        // Propiedad que sirve para mostrar la imagen en el Alta al poner un URL
         private void txtImagenUrl_Leave(object sender, EventArgs e)
         {
-            cargarImagen(txtImagenUrl.Text);
+            Utils util = new Utils();
+
+            util.cargarImagen(txtImagenUrl.Text,pbImagenAlta);
         }
-        private void cargarImagen(string imagen)
+
+        private void btnAnterior_Click(object sender, EventArgs e)
         {
-            try
-            { 
-                    pbImagenAlta.Load(imagen);
-            }
-            catch (Exception)
+            Utils util = new Utils();
+
+            if (indiceImagen == 0)
+                indiceImagen = listaImagenes.Count - 1;
+            else
+                indiceImagen--;
+
+            // Al cambiar de imagen cambia el campo de la url
+            txtImagenUrl.Text = listaImagenes[indiceImagen].UrlImagen;
+
+            util.cargarImagen(listaImagenes, pbImagenAlta, indiceImagen);
+        }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            Utils util = new Utils();
+
+            if (indiceImagen == listaImagenes.Count - 1)
             {
-                pbImagenAlta.Load("https://community.softr.io/uploads/db9110/original/2X/7/74e6e7e382d0ff5d7773ca9a87e6f6f8817a68a6.jpeg");
+                indiceImagen = 0;
+                util.cargarImagen(listaImagenes, pbImagenAlta, indiceImagen);
             }
+            else
+            {
+                indiceImagen++;
+                util.cargarImagen(listaImagenes, pbImagenAlta, indiceImagen);
+            }
+            // Al cambiar de imagen cambia el campo de la url
+            txtImagenUrl.Text = listaImagenes[indiceImagen].UrlImagen;
         }
     }
 }

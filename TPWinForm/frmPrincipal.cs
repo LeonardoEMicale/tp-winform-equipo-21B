@@ -17,7 +17,7 @@ namespace TPWinForm
     {
 
         private List<Articulo> listaArticulo;
-        private List<string> listaImagenes;
+        private List<Imagen> listaImagenes;
         private int indiceImagen;
 
         public frmPrincipal()
@@ -59,7 +59,10 @@ namespace TPWinForm
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            frmAlta formModificacion = new frmAlta();
+            Articulo artSeleccionado;
+            artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            frmAlta formModificacion = new frmAlta(artSeleccionado);
             formModificacion.ShowDialog();
         }
 

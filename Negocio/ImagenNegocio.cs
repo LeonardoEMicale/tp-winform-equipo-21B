@@ -10,19 +10,23 @@ namespace Negocio
 {
     public class ImagenNegocio
     {
-        public List<string> buscarImagenes(int articuloID)
+        public List<Imagen> buscarImagenes(int articuloID)
         {
             AccesoDatos datos = new AccesoDatos();
-            List<string> listaImg = new List<string>();
+            List<Imagen> listaImg = new List<Imagen>();
 
             try
             {
-                datos.setearConsulta("select ImagenUrl from IMAGENES where idArticulo = " + articuloID);
+                datos.setearConsulta("select Id, IdArticulo, ImagenUrl from IMAGENES where idArticulo = " + articuloID);
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
-                    listaImg.Add((string)datos.Lector["ImagenUrl"]);
+                    Imagen img = new Imagen();
+                    img.IdImagen = (int)datos.Lector["Id"];
+                    img.IdArticulo = (int)datos.Lector["IdArticulo"];
+                    img.UrlImagen = (string)datos.Lector["ImagenUrl"];
+                    listaImg.Add(img);
                 }
 
                 return listaImg;
@@ -52,6 +56,22 @@ namespace Negocio
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+        public void modificarImagen(int IdImagen, string Url)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("Update IMAGENES Set ImagenUrl = @ImagenURL Where Id = @Id");
+                datos.setearParametros("@Id", IdImagen);
+                datos.setearParametros("@ImagenURL", Url);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }
