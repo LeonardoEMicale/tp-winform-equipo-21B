@@ -30,42 +30,53 @@ namespace TPWinForm
 
         private void btcAceptarCategoria_Click(object sender, EventArgs e)
         {
+
             if (string.IsNullOrWhiteSpace(txtDescripcionCategoria.Text))
             {
-                MessageBox.Show("La descripción de la marca es obligatoria.", "Campo obligatorio");
+                MessageBox.Show("La descripción de la categoría es obligatoria.", "Campo obligatorio");
+                return;
+            }
+
+            //Guardo la descripción en una variable porque se pierde el valor al comparar
+            string nuevaDescripcion = txtDescripcionCategoria.Text.Trim();
+
+            //Validación alfanumerica
+            Regex soloAlfanumerico = new Regex("^[a-zA-Z0-9 ]*$");
+            if (!soloAlfanumerico.IsMatch(nuevaDescripcion))
+            {
+                MessageBox.Show("Solo se permiten letras y números", "Formato incorrecto");
                 return;
             }
 
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             try
             {
-                //Si viene vacío es agregar. Crea nueva Categoría.
-                if(categoria == null)
+                if (categoria == null) categoria = new Categoria();
+
+                //Validación de existencia
+                bool esNueva = (categoria.IdCategoria == 0);
+                bool cambioNombre = (!esNueva && categoria.Descripcion.ToUpper() != nuevaDescripcion.ToUpper());
+
+                if (esNueva || cambioNombre)
                 {
-                    categoria = new Categoria();
+                    if (categoriaNegocio.existeCategoria(nuevaDescripcion))
+                    {
+                        MessageBox.Show("Ya existe una categoría con ese nombre.");
+                        return;
+                    }
                 }
 
-                categoria.Descripcion = txtDescripcionCategoria.Text;
+                categoria.Descripcion = nuevaDescripcion;
 
-                //Valida input con letras y números únicamente
-                Regex soloAlfanumerico = new Regex("^[a-zA-Z0-9 ]*$");
-
-                if (!soloAlfanumerico.IsMatch(categoria.Descripcion))
-                {
-                    MessageBox.Show("Solo se permiten letras y números", "Formato incorrecto");
-                    return;
-                }
-
-                //Si tiene Id ya existe, es modificar.
                 if (categoria.IdCategoria != 0)
                 {
                     categoriaNegocio.modificar(categoria);
-                    MessageBox.Show("Categoria modificada con éxito.");
+                    MessageBox.Show("Categoría modificada con éxito.");
                 }
                 else
                 {
-                categoriaNegocio.agregar(categoria);
-                MessageBox.Show("Categoria agregada con éxito.");
+                    categoriaNegocio.agregar(categoria);
+                    MessageBox.Show("Categoría agregada con éxito.");
                 }
 
                 Close();

@@ -94,5 +94,26 @@ namespace Negocio
                 throw ex;
             }
         }
+
+        public bool existeCategoria(string descripcion)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("Select Id From Categorias where UPPER(Descripcion) = UPPER(@descripcion)");
+                datos.setearParametros("@descripcion", descripcion);
+                datos.ejecutarLectura();
+
+                return datos.Lector.Read();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }
