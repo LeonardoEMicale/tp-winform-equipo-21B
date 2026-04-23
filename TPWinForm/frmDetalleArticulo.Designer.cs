@@ -174,18 +174,23 @@
             // 
             // btnDetalleVolver
             // 
+            this.btnDetalleVolver.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDetalleVolver.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnDetalleVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDetalleVolver.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F);
             this.btnDetalleVolver.Location = new System.Drawing.Point(661, 376);
             this.btnDetalleVolver.Name = "btnDetalleVolver";
             this.btnDetalleVolver.Size = new System.Drawing.Size(75, 23);
             this.btnDetalleVolver.TabIndex = 18;
             this.btnDetalleVolver.Text = "Volver";
-            this.btnDetalleVolver.UseVisualStyleBackColor = true;
+            this.btnDetalleVolver.UseVisualStyleBackColor = false;
             this.btnDetalleVolver.Click += new System.EventHandler(this.btnDetalleVolver_Click);
             // 
             // frmDetalleArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnDetalleVolver);
             this.Controls.Add(this.pictureBox1);

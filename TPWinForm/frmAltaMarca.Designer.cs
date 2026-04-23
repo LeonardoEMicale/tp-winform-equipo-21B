@@ -36,6 +36,8 @@
             // 
             // btcAceptarMarca
             // 
+            this.btcAceptarMarca.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btcAceptarMarca.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F);
             this.btcAceptarMarca.Location = new System.Drawing.Point(82, 163);
             this.btcAceptarMarca.Name = "btcAceptarMarca";
             this.btcAceptarMarca.Size = new System.Drawing.Size(75, 23);
@@ -46,6 +48,8 @@
             // 
             // btnCancelarMarca
             // 
+            this.btnCancelarMarca.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnCancelarMarca.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F);
             this.btnCancelarMarca.Location = new System.Drawing.Point(176, 163);
             this.btnCancelarMarca.Name = "btnCancelarMarca";
             this.btnCancelarMarca.Size = new System.Drawing.Size(75, 23);
@@ -75,6 +79,7 @@
             this.AcceptButton = this.btcAceptarMarca;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(337, 292);
             this.Controls.Add(this.lblDescripcionMarca);
             this.Controls.Add(this.txtDescripcionMarca);

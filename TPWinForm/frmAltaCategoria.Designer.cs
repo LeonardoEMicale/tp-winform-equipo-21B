@@ -52,22 +52,28 @@
             // 
             // btnCancelarCategoria
             // 
+            this.btnCancelarCategoria.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancelarCategoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnCancelarCategoria.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F);
             this.btnCancelarCategoria.Location = new System.Drawing.Point(176, 163);
             this.btnCancelarCategoria.Name = "btnCancelarCategoria";
             this.btnCancelarCategoria.Size = new System.Drawing.Size(75, 23);
             this.btnCancelarCategoria.TabIndex = 5;
             this.btnCancelarCategoria.Text = "Cancelar";
-            this.btnCancelarCategoria.UseVisualStyleBackColor = true;
+            this.btnCancelarCategoria.UseVisualStyleBackColor = false;
             this.btnCancelarCategoria.Click += new System.EventHandler(this.btnCancelarCategoria_Click);
             // 
             // btcAceptarCategoria
             // 
+            this.btcAceptarCategoria.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btcAceptarCategoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+            this.btcAceptarCategoria.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F);
             this.btcAceptarCategoria.Location = new System.Drawing.Point(82, 163);
             this.btcAceptarCategoria.Name = "btcAceptarCategoria";
             this.btcAceptarCategoria.Size = new System.Drawing.Size(75, 23);
             this.btcAceptarCategoria.TabIndex = 4;
             this.btcAceptarCategoria.Text = "Aceptar";
-            this.btcAceptarCategoria.UseVisualStyleBackColor = true;
+            this.btcAceptarCategoria.UseVisualStyleBackColor = false;
             this.btcAceptarCategoria.Click += new System.EventHandler(this.btcAceptarCategoria_Click);
             // 
             // frmAltaCategoria
@@ -75,6 +81,7 @@
             this.AcceptButton = this.btcAceptarCategoria;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(337, 292);
             this.Controls.Add(this.lblDescripcionCategoria);
             this.Controls.Add(this.txtDescripcionCategoria);
