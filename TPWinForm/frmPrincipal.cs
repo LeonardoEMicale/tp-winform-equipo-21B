@@ -147,5 +147,14 @@ namespace TPWinForm
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void btnGestImagen_Click(object sender, EventArgs e)
+        {
+            Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            frmGestionImagen gestionImagen = new frmGestionImagen(artSeleccionado);
+            gestionImagen.ShowDialog();
+            cargarGrids();
+        }
     }
 }

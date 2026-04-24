@@ -43,6 +43,7 @@
             this.pbImagen = new System.Windows.Forms.PictureBox();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnAnterior = new System.Windows.Forms.Button();
+            this.btnGestImagen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
@@ -208,12 +209,23 @@
             this.btnAnterior.UseVisualStyleBackColor = false;
             this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
+            // btnGestImagen
+            // 
+            this.btnGestImagen.Location = new System.Drawing.Point(494, 398);
+            this.btnGestImagen.Name = "btnGestImagen";
+            this.btnGestImagen.Size = new System.Drawing.Size(115, 23);
+            this.btnGestImagen.TabIndex = 11;
+            this.btnGestImagen.Text = "Gestionar Imagen";
+            this.btnGestImagen.UseVisualStyleBackColor = true;
+            this.btnGestImagen.Click += new System.EventHandler(this.btnGestImagen_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(1074, 561);
+            this.Controls.Add(this.btnGestImagen);
             this.Controls.Add(this.btnAnterior);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.pbImagen);
@@ -257,6 +269,7 @@
         private System.Windows.Forms.PictureBox pbImagen;
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnAnterior;
+        private System.Windows.Forms.Button btnGestImagen;
     }
 }
 
