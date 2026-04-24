@@ -32,6 +32,10 @@ namespace TPWinForm
             {
                 listaArticulo = negocio.listar();
                 dgvArticulos.DataSource = listaArticulo;
+
+                cboCampo.Items.Add("Marca");
+                cboCampo.Items.Add("Categoría");
+                cboCampo.Items.Add("Precio");
             }
             catch (Exception ex)
             {
@@ -145,6 +149,57 @@ namespace TPWinForm
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion = cboCampo.SelectedItem.ToString();
+            if(opcion == "Precio")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Igual a: $");
+                cboCriterio.Items.Add("Desde: $");
+                cboCriterio.Items.Add("Hasta: $");
+            }
+            else
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Empieza con");
+                cboCriterio.Items.Add("Termina con");
+                cboCriterio.Items.Add("Contiene");
+            }
+        }
+
+        private void btnFiltroAv_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio artNegocio = new ArticuloNegocio();
+
+            if (cboCampo.SelectedItem == null || cboCriterio.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar campo y criterio para filtrar.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtFiltroAvanzado.Text))
+            {
+                dgvArticulos.DataSource = null;
+                dgvArticulos.DataSource = artNegocio.listar();
+            }
+            else
+            {
+            try
+            {
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtroAv = txtFiltroAvanzado.Text;
+
+                dgvArticulos.DataSource = artNegocio.filtrar(campo, criterio, filtroAv);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
             }
         }
     }
