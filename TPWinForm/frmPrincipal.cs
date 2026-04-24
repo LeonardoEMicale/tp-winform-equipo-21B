@@ -152,10 +152,19 @@ namespace TPWinForm
             }
         }
 
+        private void btnGestImagen_Click(object sender, EventArgs e)
+        {
+            Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            frmGestionImagen gestionImagen = new frmGestionImagen(artSeleccionado);
+            gestionImagen.ShowDialog();
+            cargarGrids();
+        }
+
         private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
         {
             string opcion = cboCampo.SelectedItem.ToString();
-            if(opcion == "Precio")
+            if (opcion == "Precio")
             {
                 cboCriterio.Items.Clear();
                 cboCriterio.Items.Add("Igual a: $");
@@ -188,18 +197,18 @@ namespace TPWinForm
             }
             else
             {
-            try
-            {
-                string campo = cboCampo.SelectedItem.ToString();
-                string criterio = cboCriterio.SelectedItem.ToString();
-                string filtroAv = txtFiltroAvanzado.Text;
+                try
+                {
+                    string campo = cboCampo.SelectedItem.ToString();
+                    string criterio = cboCriterio.SelectedItem.ToString();
+                    string filtroAv = txtFiltroAvanzado.Text;
 
-                dgvArticulos.DataSource = artNegocio.filtrar(campo, criterio, filtroAv);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+                    dgvArticulos.DataSource = artNegocio.filtrar(campo, criterio, filtroAv);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
     }

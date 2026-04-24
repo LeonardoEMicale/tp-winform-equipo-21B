@@ -137,8 +137,8 @@ namespace Negocio
                 {
                     switch (criterio)
                     {
-                        case "Desde: $": consulta += "Precio > @filtro"; break;
-                        case "Hasta: $": consulta += "Precio < @filtro"; break;
+                        case "Desde: $": consulta += "Precio >= @filtro"; break;
+                        case "Hasta: $": consulta += "Precio =< @filtro"; break;
                         default: consulta += "Precio = @filtro"; break;
                     }
                     string filtroAvAux = filtroAv.Replace(",", "."); //Reemplaza "," por "." para los resultados numéricos.

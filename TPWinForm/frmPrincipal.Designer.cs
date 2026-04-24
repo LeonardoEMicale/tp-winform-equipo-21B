@@ -43,9 +43,10 @@
             this.pbImagen = new System.Windows.Forms.PictureBox();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnAnterior = new System.Windows.Forms.Button();
+            this.btnGestImagen = new System.Windows.Forms.Button();
             this.lblCampo = new System.Windows.Forms.Label();
             this.lblCriterio = new System.Windows.Forms.Label();
-            this.lblFiltro = new System.Windows.Forms.Label();
+            this.lblFiltroAv = new System.Windows.Forms.Label();
             this.cboCampo = new System.Windows.Forms.ComboBox();
             this.cboCriterio = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
@@ -60,7 +61,7 @@
             this.dgvArticulos.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvArticulos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulos.Location = new System.Drawing.Point(128, 100);
+            this.dgvArticulos.Location = new System.Drawing.Point(129, 116);
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.ReadOnly = true;
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -70,9 +71,9 @@
             // 
             // txtFiltroAvanzado
             // 
-            this.txtFiltroAvanzado.Location = new System.Drawing.Point(427, 56);
+            this.txtFiltroAvanzado.Location = new System.Drawing.Point(453, 63);
             this.txtFiltroAvanzado.Name = "txtFiltroAvanzado";
-            this.txtFiltroAvanzado.Size = new System.Drawing.Size(121, 20);
+            this.txtFiltroAvanzado.Size = new System.Drawing.Size(93, 20);
             this.txtFiltroAvanzado.TabIndex = 0;
             // 
             // btnFiltroAv
@@ -82,9 +83,9 @@
             this.btnFiltroAv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFiltroAv.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F);
             this.btnFiltroAv.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnFiltroAv.Location = new System.Drawing.Point(556, 56);
+            this.btnFiltroAv.Location = new System.Drawing.Point(561, 62);
             this.btnFiltroAv.Name = "btnFiltroAv";
-            this.btnFiltroAv.Size = new System.Drawing.Size(59, 21);
+            this.btnFiltroAv.Size = new System.Drawing.Size(58, 21);
             this.btnFiltroAv.TabIndex = 1;
             this.btnFiltroAv.Text = "Buscar";
             this.btnFiltroAv.UseVisualStyleBackColor = false;
@@ -96,7 +97,7 @@
             this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F);
-            this.btnAgregar.Location = new System.Drawing.Point(132, 398);
+            this.btnAgregar.Location = new System.Drawing.Point(128, 380);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 3;
@@ -110,7 +111,7 @@
             this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F);
-            this.btnModificar.Location = new System.Drawing.Point(222, 398);
+            this.btnModificar.Location = new System.Drawing.Point(218, 380);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 4;
@@ -124,7 +125,7 @@
             this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F);
-            this.btnEliminar.Location = new System.Drawing.Point(312, 398);
+            this.btnEliminar.Location = new System.Drawing.Point(308, 380);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 5;
@@ -138,7 +139,7 @@
             this.btnDetalle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDetalle.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F);
-            this.btnDetalle.Location = new System.Drawing.Point(402, 398);
+            this.btnDetalle.Location = new System.Drawing.Point(398, 380);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(75, 23);
             this.btnDetalle.TabIndex = 6;
@@ -214,51 +215,61 @@
             this.btnAnterior.UseVisualStyleBackColor = false;
             this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
+            // btnGestImagen
+            // 
+            this.btnGestImagen.Location = new System.Drawing.Point(490, 380);
+            this.btnGestImagen.Name = "btnGestImagen";
+            this.btnGestImagen.Size = new System.Drawing.Size(115, 23);
+            this.btnGestImagen.TabIndex = 11;
+            this.btnGestImagen.Text = "Gestionar Imagen";
+            this.btnGestImagen.UseVisualStyleBackColor = true;
+            this.btnGestImagen.Click += new System.EventHandler(this.btnGestImagen_Click);
+            // 
             // lblCampo
             // 
             this.lblCampo.AutoSize = true;
-            this.lblCampo.Location = new System.Drawing.Point(125, 60);
+            this.lblCampo.Location = new System.Drawing.Point(125, 68);
             this.lblCampo.Name = "lblCampo";
             this.lblCampo.Size = new System.Drawing.Size(43, 13);
-            this.lblCampo.TabIndex = 11;
+            this.lblCampo.TabIndex = 12;
             this.lblCampo.Text = "Campo:";
             // 
             // lblCriterio
             // 
             this.lblCriterio.AutoSize = true;
-            this.lblCriterio.Location = new System.Drawing.Point(261, 61);
+            this.lblCriterio.Location = new System.Drawing.Point(268, 70);
             this.lblCriterio.Name = "lblCriterio";
             this.lblCriterio.Size = new System.Drawing.Size(42, 13);
-            this.lblCriterio.TabIndex = 12;
-            this.lblCriterio.Text = "Criterio:";
+            this.lblCriterio.TabIndex = 13;
+            this.lblCriterio.Text = "Cirterio:";
             // 
-            // lblFiltro
+            // lblFiltroAv
             // 
-            this.lblFiltro.AutoSize = true;
-            this.lblFiltro.Location = new System.Drawing.Point(387, 61);
-            this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(32, 13);
-            this.lblFiltro.TabIndex = 13;
-            this.lblFiltro.Text = "Filtro:";
+            this.lblFiltroAv.AutoSize = true;
+            this.lblFiltroAv.Location = new System.Drawing.Point(416, 70);
+            this.lblFiltroAv.Name = "lblFiltroAv";
+            this.lblFiltroAv.Size = new System.Drawing.Size(32, 13);
+            this.lblFiltroAv.TabIndex = 14;
+            this.lblFiltroAv.Text = "Filtro:";
             // 
             // cboCampo
             // 
             this.cboCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCampo.FormattingEnabled = true;
-            this.cboCampo.Location = new System.Drawing.Point(174, 56);
+            this.cboCampo.Location = new System.Drawing.Point(169, 62);
             this.cboCampo.Name = "cboCampo";
-            this.cboCampo.Size = new System.Drawing.Size(67, 21);
-            this.cboCampo.TabIndex = 14;
+            this.cboCampo.Size = new System.Drawing.Size(93, 21);
+            this.cboCampo.TabIndex = 15;
             this.cboCampo.SelectedIndexChanged += new System.EventHandler(this.cboCampo_SelectedIndexChanged);
             // 
             // cboCriterio
             // 
             this.cboCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriterio.FormattingEnabled = true;
-            this.cboCriterio.Location = new System.Drawing.Point(308, 56);
+            this.cboCriterio.Location = new System.Drawing.Point(316, 62);
             this.cboCriterio.Name = "cboCriterio";
-            this.cboCriterio.Size = new System.Drawing.Size(71, 21);
-            this.cboCriterio.TabIndex = 15;
+            this.cboCriterio.Size = new System.Drawing.Size(93, 21);
+            this.cboCriterio.TabIndex = 16;
             // 
             // frmPrincipal
             // 
@@ -268,9 +279,10 @@
             this.ClientSize = new System.Drawing.Size(1074, 561);
             this.Controls.Add(this.cboCriterio);
             this.Controls.Add(this.cboCampo);
-            this.Controls.Add(this.lblFiltro);
+            this.Controls.Add(this.lblFiltroAv);
             this.Controls.Add(this.lblCriterio);
             this.Controls.Add(this.lblCampo);
+            this.Controls.Add(this.btnGestImagen);
             this.Controls.Add(this.btnAnterior);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.pbImagen);
@@ -314,9 +326,10 @@
         private System.Windows.Forms.PictureBox pbImagen;
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnAnterior;
+        private System.Windows.Forms.Button btnGestImagen;
         private System.Windows.Forms.Label lblCampo;
         private System.Windows.Forms.Label lblCriterio;
-        private System.Windows.Forms.Label lblFiltro;
+        private System.Windows.Forms.Label lblFiltroAv;
         private System.Windows.Forms.ComboBox cboCampo;
         private System.Windows.Forms.ComboBox cboCriterio;
     }
