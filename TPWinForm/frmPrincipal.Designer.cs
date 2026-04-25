@@ -65,7 +65,7 @@
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.ReadOnly = true;
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(490, 212);
+            this.dgvArticulos.Size = new System.Drawing.Size(490, 219);
             this.dgvArticulos.TabIndex = 2;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
@@ -83,7 +83,7 @@
             this.btnFiltroAv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFiltroAv.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F);
             this.btnFiltroAv.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnFiltroAv.Location = new System.Drawing.Point(561, 62);
+            this.btnFiltroAv.Location = new System.Drawing.Point(561, 63);
             this.btnFiltroAv.Name = "btnFiltroAv";
             this.btnFiltroAv.Size = new System.Drawing.Size(58, 21);
             this.btnFiltroAv.TabIndex = 1;
@@ -111,7 +111,7 @@
             this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F);
-            this.btnModificar.Location = new System.Drawing.Point(218, 380);
+            this.btnModificar.Location = new System.Drawing.Point(225, 380);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 4;
@@ -125,7 +125,7 @@
             this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F);
-            this.btnEliminar.Location = new System.Drawing.Point(308, 380);
+            this.btnEliminar.Location = new System.Drawing.Point(316, 380);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 5;
@@ -139,7 +139,7 @@
             this.btnDetalle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
             this.btnDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDetalle.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F);
-            this.btnDetalle.Location = new System.Drawing.Point(398, 380);
+            this.btnDetalle.Location = new System.Drawing.Point(410, 380);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(75, 23);
             this.btnDetalle.TabIndex = 6;
@@ -217,7 +217,7 @@
             // 
             // btnGestImagen
             // 
-            this.btnGestImagen.Location = new System.Drawing.Point(490, 380);
+            this.btnGestImagen.Location = new System.Drawing.Point(504, 380);
             this.btnGestImagen.Name = "btnGestImagen";
             this.btnGestImagen.Size = new System.Drawing.Size(115, 23);
             this.btnGestImagen.TabIndex = 11;
@@ -276,7 +276,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(1074, 561);
+            this.ClientSize = new System.Drawing.Size(1074, 483);
             this.Controls.Add(this.cboCriterio);
             this.Controls.Add(this.cboCampo);
             this.Controls.Add(this.lblFiltroAv);

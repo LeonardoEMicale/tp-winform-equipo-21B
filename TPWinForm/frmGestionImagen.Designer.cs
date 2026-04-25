@@ -91,11 +91,13 @@
             this.txtUrlNueva.Name = "txtUrlNueva";
             this.txtUrlNueva.Size = new System.Drawing.Size(193, 20);
             this.txtUrlNueva.TabIndex = 9;
+            this.txtUrlNueva.TextChanged += new System.EventHandler(this.txtUrlNueva_TextChanged);
             // 
             // frmGestionImagen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(690, 266);
             this.Controls.Add(this.txtUrlNueva);
             this.Controls.Add(this.btnVolver);
@@ -104,6 +106,7 @@
             this.Controls.Add(this.btnEliminarImg);
             this.Controls.Add(this.btnAgregarImg);
             this.Name = "frmGestionImagen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de Imagenes";
             this.Load += new System.EventHandler(this.frmGestionImagen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbGestImagen)).EndInit();

@@ -44,25 +44,6 @@ namespace TPWinForm
             }
         }
 
-        private void cargarListaUrl()
-        {
-            ImagenNegocio imgNegocio = new ImagenNegocio();
-
-            try
-            {
-                listaImagenes = imgNegocio.buscarImagenes(articulo.IdArticulo);
-                lbListaImg.DataSource = null;
-                lbListaImg.DataSource = listaImagenes;
-                lbListaImg.DisplayMember = "UrlImagen";
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-
         private void btnAgregarImg_Click(object sender, EventArgs e)
         {
             ImagenNegocio imgNegocio = new ImagenNegocio();
@@ -100,7 +81,60 @@ namespace TPWinForm
 
         private void btnEliminarImg_Click(object sender, EventArgs e)
         {
-            // Falta logica
+            ImagenNegocio imgNegocio = new ImagenNegocio();
+            try
+            {
+                if(lbListaImg.SelectedItem == null)
+                {
+                    MessageBox.Show("Debe seleccionar una imagen para poder borrar..");
+                    return;
+                }
+
+                DialogResult eleccion = MessageBox.Show("Está seguro que desea eliminar el articulo?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (eleccion == DialogResult.Yes)
+                {
+                    Imagen seleccionada = (Imagen)lbListaImg.SelectedItem;
+                    
+                    imgNegocio.eliminarImagen(seleccionada.IdImagen);
+                    cargarListaUrl();
+
+                    if (lbListaImg.Items.Count == 0)
+                        pbGestImagen.Image = null;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        private void cargarListaUrl()
+        {
+            ImagenNegocio imgNegocio = new ImagenNegocio();
+
+            try
+            {
+                listaImagenes = imgNegocio.buscarImagenes(articulo.IdArticulo);
+                lbListaImg.DataSource = null;
+                lbListaImg.DataSource = listaImagenes;
+                lbListaImg.DisplayMember = "UrlImagen";
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        private void txtUrlNueva_TextChanged(object sender, EventArgs e)
+        {
+            Utils utils = new Utils();
+            string url = txtUrlNueva.Text;
+
+            if(url.StartsWith("http"))
+                utils.cargarImagen(txtUrlNueva.Text, pbGestImagen);
         }
     }
 }
