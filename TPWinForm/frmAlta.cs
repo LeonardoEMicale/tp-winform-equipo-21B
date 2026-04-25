@@ -84,6 +84,8 @@ namespace TPWinForm
             ArticuloNegocio artNegocio = new ArticuloNegocio();
             ImagenNegocio imgNegocio = new ImagenNegocio();
 
+            if (!validarCampos())
+                return;
             try
             {
                 if (articulo == null)
@@ -102,16 +104,33 @@ namespace TPWinForm
                 if(articulo.IdArticulo != 0)
                 {
                     artNegocio.modificar(articulo);
-                    imgNegocio.modificarImagen(listaImagenes[indiceImagen].IdImagen, txtImagenUrl.Text);
+
+                    // si se elimina la imagen actual al intentar modficiar un articulo, va a tomar la imagen por defecto
+                    if (string.IsNullOrWhiteSpace(txtImagenUrl.Text))
+                    {
+                        txtImagenUrl.Text = "https://community.softr.io/uploads/db9110/original/2X/7/74e6e7e382d0ff5d7773ca9a87e6f6f8817a68a6.jpeg";
+                    }
+
+                    if(!string.IsNullOrWhiteSpace(txtImagenUrl.Text) && listaImagenes != null && listaImagenes.Count > 0)
+                    {
+                        imgNegocio.modificarImagen(listaImagenes[indiceImagen].IdImagen, txtImagenUrl.Text);
+                    }
                     MessageBox.Show("Articulo modificado correctamenete");
                 }
                 else
                 {
                     int IDrecuperado = artNegocio.agregar(articulo);
                     Imagen img = new Imagen();
+
+                    if (string.IsNullOrWhiteSpace(txtImagenUrl.Text))
+                    {
+                        txtImagenUrl.Text = "https://community.softr.io/uploads/db9110/original/2X/7/74e6e7e382d0ff5d7773ca9a87e6f6f8817a68a6.jpeg";
+                    }
+
                     if (IDrecuperado != -1)
                     {
-                        img.IdArticulo = int.Parse(IDrecuperado.ToString());
+                        img.IdArticulo = IDrecuperado;
+
                         img.UrlImagen = txtImagenUrl.Text;
                         imgNegocio.agregarImagen(img);
                     }
@@ -173,6 +192,35 @@ namespace TPWinForm
             }
             // Al cambiar de imagen cambia el campo de la url
             txtImagenUrl.Text = listaImagenes[indiceImagen].UrlImagen;
+        }
+
+        private bool validarCampos()
+        {
+            errorProvider.Clear();
+
+            if(string.IsNullOrWhiteSpace(txtCodigo.Text))
+            {
+                errorProvider.SetError(txtCodigo, "El código es obligatorio.");
+                return false;
+            }
+            if(string.IsNullOrEmpty(txtNombre.Text))
+            {
+                errorProvider.SetError(txtNombre, "El nombre es obligatorio.");
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            {
+                errorProvider.SetError(txtDescripcion, "La descipcion es obligatoria.");
+                return false;
+            }
+
+            decimal precio;
+            if(!decimal.TryParse(txtPrecio.Text, out precio))
+            {
+                errorProvider.SetError(txtPrecio, "El precio es obligatorio y solo debe contener números.");
+                return false;
+            }
+            return true;
         }
     }
 }

@@ -49,8 +49,6 @@ namespace TPWinForm
             frmAlta formAlta = new frmAlta();
             formAlta.ShowDialog();
 
-            // Actualizo grilla luego de agregar un nuevo articulo
-            ArticuloNegocio negocio = new ArticuloNegocio();
             cargarGrids();
         }
 
@@ -67,6 +65,7 @@ namespace TPWinForm
 
             frmAlta formModificacion = new frmAlta(artSeleccionado);
             formModificacion.ShowDialog();
+            cargarGrids();
         }
 
         private void administrarMarcasYCategoríasToolStripMenuItem_Click(object sender, EventArgs e)
