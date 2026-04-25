@@ -150,7 +150,7 @@ namespace Negocio
 
                     switch (criterio)
                     {
-                        case "Comienza con":
+                        case "Empieza con":
                             consulta += columna + " like @filtro + '%'"; break;
                         case "Termina con":
                             consulta += columna + " like '%' + @filtro"; break;

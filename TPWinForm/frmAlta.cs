@@ -19,6 +19,7 @@ namespace TPWinForm
         private Articulo articulo = null;
         private List<Imagen> listaImagenes;
         private int indiceImagen;
+        private bool lectura = false;
 
         public frmAlta()
         {
@@ -29,6 +30,14 @@ namespace TPWinForm
             InitializeComponent();
             this.articulo = articulo;
             Text = "Modificar Articulo";
+        }
+        public frmAlta(Articulo articulo, bool lectura)
+        {
+            InitializeComponent();
+            this.articulo = articulo;
+            this.lectura = lectura;
+            Text = "Detalle del Articulo";
+            btnCancelar.Text = "Volver";
         }
 
         private void frmAlta_Load(object sender, EventArgs e)
@@ -63,6 +72,9 @@ namespace TPWinForm
 
                     cbMarca.SelectedValue = articulo.Marca.IdMarca;
                     cbCategoria.SelectedValue = articulo.Categoria.IdCategoria;
+
+                    if (lectura == true)
+                        camposSoloLectura();
                 }
                 else
                 {
@@ -221,6 +233,19 @@ namespace TPWinForm
                 return false;
             }
             return true;
+        }
+
+        private void camposSoloLectura()
+        {
+            txtCodigo.Enabled = false;
+            txtNombre.Enabled = false;
+            txtDescripcion.Enabled = false;
+            txtImagenUrl.Enabled = false;
+            cbMarca.Enabled = false;
+            cbCategoria.Enabled = false;
+            txtPrecio.Enabled = false;
+
+            btnAceptar.Visible = false;
         }
     }
 }

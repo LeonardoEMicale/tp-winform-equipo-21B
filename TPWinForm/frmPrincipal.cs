@@ -55,8 +55,12 @@ namespace TPWinForm
 
         private void btnDetalle_Click(object sender, EventArgs e)
         {
-            frmDetalleArticulo formDetalleArticulo = new frmDetalleArticulo();
-            formDetalleArticulo.ShowDialog();
+            Articulo artSeleccionado;
+            artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            frmAlta frmVerDetalle = new frmAlta(artSeleccionado, true);
+            frmVerDetalle.ShowDialog();
+            cargarGrids();
             limpiarFiltro();
         }
 
@@ -79,15 +83,24 @@ namespace TPWinForm
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            ImagenNegocio imgNegocio = new ImagenNegocio();
-            Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            try
+            {
+                ImagenNegocio imgNegocio = new ImagenNegocio();
+                Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
 
-            // Guardo todas las imagenes encontrada en la base de datos
-            listaImagenes = imgNegocio.buscarImagenes(artSeleccionado.IdArticulo);
-            indiceImagen = 0;
+                // Guardo todas las imagenes encontrada en la base de datos
+                listaImagenes = imgNegocio.buscarImagenes(artSeleccionado.IdArticulo);
+                indiceImagen = 0;
 
-            Utils util = new Utils();
-            util.cargarImagen(listaImagenes, pbImagen, indiceImagen);
+                Utils util = new Utils();
+                util.cargarImagen(listaImagenes, pbImagen, indiceImagen);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
@@ -214,14 +227,18 @@ namespace TPWinForm
                     string criterio = cboCriterio.SelectedItem.ToString();
                     string filtroAv = txtFiltroAvanzado.Text;
 
- 
                     listaFiltrada = artNegocio.filtrar(campo, criterio, filtroAv);
                     dgvArticulos.DataSource = listaFiltrada;
 
                     if (listaFiltrada.Count > 0)
                         habilitarBotones(true);
                     else
+                    {
+                        pbImagen.Image = null;
+                        btnAnterior.Visible = false;
+                        btnSiguiente.Visible = false;
                         habilitarBotones(false);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -235,6 +252,7 @@ namespace TPWinForm
             btnModificar.Enabled = mostrar;
             btnEliminar.Enabled = mostrar;
             btnGestImagen.Enabled = mostrar;
+            btnDetalle.Enabled = mostrar;
         }
 
         private void limpiarFiltro()
