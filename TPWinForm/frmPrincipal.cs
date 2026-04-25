@@ -50,12 +50,14 @@ namespace TPWinForm
             formAlta.ShowDialog();
 
             cargarGrids();
+            limpiarFiltro();
         }
 
         private void btnDetalle_Click(object sender, EventArgs e)
         {
             frmDetalleArticulo formDetalleArticulo = new frmDetalleArticulo();
             formDetalleArticulo.ShowDialog();
+            limpiarFiltro();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -66,6 +68,7 @@ namespace TPWinForm
             frmAlta formModificacion = new frmAlta(artSeleccionado);
             formModificacion.ShowDialog();
             cargarGrids();
+            limpiarFiltro();
         }
 
         private void administrarMarcasYCategoríasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -162,26 +165,33 @@ namespace TPWinForm
 
         private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cboCampo.SelectedItem == null)
+            {
+                habilitarBotones(true);
+                return;
+            }
+            
             string opcion = cboCampo.SelectedItem.ToString();
             if (opcion == "Precio")
-            {
-                cboCriterio.Items.Clear();
-                cboCriterio.Items.Add("Igual a: $");
-                cboCriterio.Items.Add("Desde: $");
-                cboCriterio.Items.Add("Hasta: $");
+                {
+                    cboCriterio.Items.Clear();
+                    cboCriterio.Items.Add("Igual a: $");
+                    cboCriterio.Items.Add("Desde: $");
+                    cboCriterio.Items.Add("Hasta: $");
+                }
+                else
+                {
+                    cboCriterio.Items.Clear();
+                    cboCriterio.Items.Add("Empieza con");
+                    cboCriterio.Items.Add("Termina con");
+                    cboCriterio.Items.Add("Contiene");
+                }
             }
-            else
-            {
-                cboCriterio.Items.Clear();
-                cboCriterio.Items.Add("Empieza con");
-                cboCriterio.Items.Add("Termina con");
-                cboCriterio.Items.Add("Contiene");
-            }
-        }
 
         private void btnFiltroAv_Click(object sender, EventArgs e)
         {
             ArticuloNegocio artNegocio = new ArticuloNegocio();
+            List<Articulo> listaFiltrada = new List<Articulo>();
 
             if (cboCampo.SelectedItem == null || cboCriterio.SelectedItem == null)
             {
@@ -192,7 +202,9 @@ namespace TPWinForm
             if (string.IsNullOrEmpty(txtFiltroAvanzado.Text))
             {
                 dgvArticulos.DataSource = null;
-                dgvArticulos.DataSource = artNegocio.listar();
+                listaFiltrada = artNegocio.listar();
+                dgvArticulos.DataSource = listaFiltrada;
+                habilitarBotones(true);
             }
             else
             {
@@ -202,13 +214,34 @@ namespace TPWinForm
                     string criterio = cboCriterio.SelectedItem.ToString();
                     string filtroAv = txtFiltroAvanzado.Text;
 
-                    dgvArticulos.DataSource = artNegocio.filtrar(campo, criterio, filtroAv);
+ 
+                    listaFiltrada = artNegocio.filtrar(campo, criterio, filtroAv);
+                    dgvArticulos.DataSource = listaFiltrada;
+
+                    if (listaFiltrada.Count > 0)
+                        habilitarBotones(true);
+                    else
+                        habilitarBotones(false);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
             }
+        }
+
+        private void habilitarBotones(bool mostrar)
+        {
+            btnModificar.Enabled = mostrar;
+            btnEliminar.Enabled = mostrar;
+            btnGestImagen.Enabled = mostrar;
+        }
+
+        private void limpiarFiltro()
+        {
+            cboCampo.SelectedIndex = -1;
+            cboCriterio.SelectedIndex = -1;
+            txtFiltroAvanzado.Clear();
         }
     }
 }

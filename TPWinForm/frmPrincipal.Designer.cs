@@ -217,12 +217,15 @@
             // 
             // btnGestImagen
             // 
+            this.btnGestImagen.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnGestImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestImagen.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F);
             this.btnGestImagen.Location = new System.Drawing.Point(504, 380);
             this.btnGestImagen.Name = "btnGestImagen";
             this.btnGestImagen.Size = new System.Drawing.Size(115, 23);
             this.btnGestImagen.TabIndex = 11;
             this.btnGestImagen.Text = "Gestionar Imagen";
-            this.btnGestImagen.UseVisualStyleBackColor = true;
+            this.btnGestImagen.UseVisualStyleBackColor = false;
             this.btnGestImagen.Click += new System.EventHandler(this.btnGestImagen_Click);
             // 
             // lblCampo
@@ -269,8 +272,7 @@
             this.cboCriterio.Location = new System.Drawing.Point(316, 62);
             this.cboCriterio.Name = "cboCriterio";
             this.cboCriterio.Size = new System.Drawing.Size(93, 21);
-            this.cboCriterio.TabIndex = 16;
-            // 
+            this.cboCriterio.TabIndex = 16;            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
