@@ -133,8 +133,10 @@ namespace TPWinForm
             Utils utils = new Utils();
             string url = txtUrlNueva.Text;
 
-            if(url.StartsWith("http"))
+            if (url.StartsWith("http"))
                 utils.cargarImagen(txtUrlNueva.Text, pbGestImagen);
+            else
+                pbGestImagen.Image = null;
         }
     }
 }
