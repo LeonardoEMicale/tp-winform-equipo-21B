@@ -97,9 +97,12 @@ namespace TPWinForm
                 if(dgvArticulos.CurrentRow != null)
                 {
                     Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
                     // Guardo todas las imagenes encontrada en la base de datos
                     listaImagenes = imgNegocio.buscarImagenes(artSeleccionado.IdArticulo);
                     indiceImagen = 0;
+                    habilitarBotones(true);
+                    habilitarBotonesImg(true);
                     Utils util = new Utils();
                     util.cargarImagen(listaImagenes, pbImagen, indiceImagen);
                 }
@@ -187,6 +190,8 @@ namespace TPWinForm
 
         private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtFiltroAvanzado.Clear();
+
             if (cboCampo.SelectedItem == null)
             {
                 habilitarBotones(true);
