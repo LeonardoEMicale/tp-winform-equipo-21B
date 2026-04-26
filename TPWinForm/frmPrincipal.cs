@@ -33,6 +33,9 @@ namespace TPWinForm
                 listaArticulo = negocio.listar();
                 dgvArticulos.DataSource = listaArticulo;
 
+                //Oculta columna de Id
+                dgvArticulos.Columns["IdArticulo"].Visible = false;
+
                 cboCampo.Items.Add("Marca");
                 cboCampo.Items.Add("Categoría");
                 cboCampo.Items.Add("Precio");

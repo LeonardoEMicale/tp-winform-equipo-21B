@@ -38,6 +38,10 @@ namespace TPWinForm
 
                 dgvMarca.DataSource = listaMarca;
                 dgvCategoria.DataSource = listaCategoria;
+
+                //Oculta columna de Id
+                dgvCategoria.Columns["IdCategoria"].Visible = false;
+                dgvMarca.Columns["IdMarca"].Visible = false;
             }
             catch (Exception ex)
             {
