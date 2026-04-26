@@ -261,5 +261,31 @@ namespace TPWinForm
             cboCriterio.SelectedIndex = -1;
             txtFiltroAvanzado.Clear();
         }
+
+        private void txtFiltroAvanzado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ToolTip mensajeError = new ToolTip(); //Para mostrar mensaje de error
+
+            //Validación para que solo se pueda ingresar números y "." y ","
+            if (cboCampo.SelectedItem?.ToString() == "Precio")
+            {
+                //Permite números, borrar, punto y coma
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                    (e.KeyChar != '.') && (e.KeyChar != ','))
+                {
+                    e.Handled = true;
+                    
+                    //Recibe mensaje, txtbox, x, y y duración
+                    mensajeError.Show("Solo se permiten números", txtFiltroAvanzado, 0, -20, 2000);
+                }
+
+                //Permite ingresar solo un "." y ","
+                if ((e.KeyChar == '.' || e.KeyChar == ',') &&
+                    (sender as TextBox).Text.IndexOfAny(new char[] { '.', ',' }) > -1)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
     }
 }

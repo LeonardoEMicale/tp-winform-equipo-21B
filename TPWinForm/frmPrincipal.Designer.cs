@@ -75,6 +75,7 @@
             this.txtFiltroAvanzado.Name = "txtFiltroAvanzado";
             this.txtFiltroAvanzado.Size = new System.Drawing.Size(93, 20);
             this.txtFiltroAvanzado.TabIndex = 0;
+            this.txtFiltroAvanzado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFiltroAvanzado_KeyPress);
             // 
             // btnFiltroAv
             // 
@@ -272,7 +273,8 @@
             this.cboCriterio.Location = new System.Drawing.Point(316, 62);
             this.cboCriterio.Name = "cboCriterio";
             this.cboCriterio.Size = new System.Drawing.Size(93, 21);
-            this.cboCriterio.TabIndex = 16;            // 
+            this.cboCriterio.TabIndex = 16;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

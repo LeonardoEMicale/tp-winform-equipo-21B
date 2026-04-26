@@ -138,7 +138,7 @@ namespace Negocio
                     switch (criterio)
                     {
                         case "Desde: $": consulta += "Precio >= @filtro"; break;
-                        case "Hasta: $": consulta += "Precio =< @filtro"; break;
+                        case "Hasta: $": consulta += "Precio <= @filtro"; break;
                         default: consulta += "Precio = @filtro"; break;
                     }
                     string filtroAvAux = filtroAv.Replace(",", "."); //Reemplaza "," por "." para los resultados numéricos.
@@ -157,13 +157,10 @@ namespace Negocio
                         default:
                             consulta += columna + " like '%' + @filtro + '%'"; break;
                     }
-                }
 
-                if(campo != "Precio")
-                {
                     datos.setearParametros("@filtro", filtroAv);
                 }
-                
+                    
                 datos.setearConsulta(consulta);
                 datos.ejecutarLectura();
 
