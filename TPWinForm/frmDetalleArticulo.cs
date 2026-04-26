@@ -16,16 +16,5 @@ namespace TPWinForm
         {
             InitializeComponent();
         }
-
-        private void frmDetalleArticulo_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDetalleVolver_Click(object sender, EventArgs e)
-        {
-            frmPrincipal formPrincipal = new frmPrincipal();
-            formPrincipal.ShowDialog();
-        }
     }
 }

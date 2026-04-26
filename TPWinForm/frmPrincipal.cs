@@ -32,13 +32,19 @@ namespace TPWinForm
             {
                 listaArticulo = negocio.listar();
                 dgvArticulos.DataSource = listaArticulo;
-
+                dgvArticulos.ClearSelection();
                 //Oculta columna de Id
                 dgvArticulos.Columns["IdArticulo"].Visible = false;
 
                 cboCampo.Items.Add("Marca");
                 cboCampo.Items.Add("Categoría");
                 cboCampo.Items.Add("Precio");
+
+                if (dgvArticulos.CurrentRow == null)
+                {
+                    habilitarBotones(false);
+                    habilitarBotonesImg(false);
+                }
             }
             catch (Exception ex)
             {
@@ -71,7 +77,6 @@ namespace TPWinForm
         {
             Articulo artSeleccionado;
             artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-
             frmAlta formModificacion = new frmAlta(artSeleccionado);
             formModificacion.ShowDialog();
             cargarGrids();
@@ -89,14 +94,15 @@ namespace TPWinForm
             try
             {
                 ImagenNegocio imgNegocio = new ImagenNegocio();
-                Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-
-                // Guardo todas las imagenes encontrada en la base de datos
-                listaImagenes = imgNegocio.buscarImagenes(artSeleccionado.IdArticulo);
-                indiceImagen = 0;
-
-                Utils util = new Utils();
-                util.cargarImagen(listaImagenes, pbImagen, indiceImagen);
+                if(dgvArticulos.CurrentRow != null)
+                {
+                    Articulo artSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    // Guardo todas las imagenes encontrada en la base de datos
+                    listaImagenes = imgNegocio.buscarImagenes(artSeleccionado.IdArticulo);
+                    indiceImagen = 0;
+                    Utils util = new Utils();
+                    util.cargarImagen(listaImagenes, pbImagen, indiceImagen);
+                }
             }
             catch (Exception ex)
             {
@@ -237,9 +243,7 @@ namespace TPWinForm
                         habilitarBotones(true);
                     else
                     {
-                        pbImagen.Image = null;
-                        btnAnterior.Visible = false;
-                        btnSiguiente.Visible = false;
+                        habilitarBotonesImg(false);
                         habilitarBotones(false);
                     }
                 }
@@ -289,6 +293,13 @@ namespace TPWinForm
                     e.Handled = true;
                 }
             }
+        }
+
+        private void habilitarBotonesImg(bool mostrar)
+        {
+            pbImagen.Image = null;
+            btnAnterior.Visible = mostrar;
+            btnSiguiente.Visible = mostrar;
         }
     }
 }
